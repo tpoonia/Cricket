@@ -148,6 +148,66 @@ def _host(venue: str, priors: dict) -> str:
     return country_map().get(venue) or "Unknown"
 
 
+def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str = "mock") -> pd.DataFrame:
+    """Set S downstream decision under the PLANTED simulator.
+
+    Each carrier (a real holdout match) is assigned a synthetic pitch class; arms select XIs and
+    are simulated under that class's planted multipliers. Oracle uses the true-class rule; VLM arms
+    read the class image via the (mock) client.
+    """
+    from src.evaluation.extraction import PITCH_TRUTH_CLASSES
+    from src.rules.checker import rules_for_label
+    from src.simulation.condition import win_probability_planted
+
+    t = load_tables()
+    m, xi, dl = t["matches"], t["xi"], t["deliveries"]
+    A._deliveries.set(dl)
+    tb = build_rates(SPLIT_DATE, m, dl)
+    values = compute_values(SPLIT_DATE, m, dl)["value"].to_dict()
+    pre = __import__("src.data.splits", fromlist=["deliveries_before"]).deliveries_before(SPLIT_DATE, m, dl)
+    st = pre[pre["wicket_kind"] == "stumped"].dropna(subset=["fielders"])
+    keepers_asof: set = set()
+    for f in st["fielders"]:
+        keepers_asof.update(str(f).split(","))
+
+    carriers = build_set_r(m, n=n_carriers)
+    client = VLMClient(backend=backend)
+    manifest_imgs = {c: f"data/synthetic/images/pitch_{c}_00.png" for c in PITCH_TRUTH_CLASSES}
+    rows = []
+    for seed, (i, mm) in enumerate(carriers.iterrows()):
+        cls = PITCH_TRUTH_CLASSES[seed % len(PITCH_TRUTH_CLASSES)]
+        team, opp = mm["team1"], mm["team2"]
+        players = A.build_players(team, mm["date"], m, xi, values, keepers_asof=keepers_asof)
+        if len(players) < 11:
+            continue
+        opp_ids = A.real_xi(opp, mm["match_id"], xi)
+        if len(opp_ids) < 7:
+            continue
+        bf = bat_first_team(mm)
+        scn = {"id": f"sets_{cls}_{mm['match_id']}", "pitch_class": cls, "sky_class": "clear",
+               "has_image": True, "image_path": manifest_imgs[cls]}
+        r_label = _vlm_rules_from_mock(client, scn, "label")
+        r_rules = _vlm_rules_from_mock(client, scn, "rules")
+        arm_xis = {
+            "B3_cricket": A.arm_b3_cricket(players),
+            "B4_oracle": A.arm_with_rules(players, rules_for_label(cls)["rules"])[0],
+            "Ours1_label_mock": A.arm_with_rules(players, r_label)[0],
+            "Ours2_rules_mock": A.arm_with_rules(players, r_rules)[0],
+            "Ref": A.real_xi(team, mm["match_id"], xi),
+        }
+        for arm, axi in arm_xis.items():
+            if len(axi) < 11 and arm != "Ref":
+                continue
+            p = win_probability_planted(axi, opp_ids, bf, tb, cls, n=n_sims, seed=seed)
+            rows.append({"match_id": mm["match_id"], "pitch_class": cls, "arm": arm,
+                         "p_win_planted": p, "n_spin": sum(A.bowl_type(x) == "spin" for x in axi),
+                         "n_pace": sum(A.bowl_type(x) == "pace" for x in axi)})
+    df = pd.DataFrame(rows)
+    RESULTS.mkdir(parents=True, exist_ok=True)
+    df.to_parquet(RESULTS / "sets_decision.parquet", index=False)
+    return df
+
+
 if __name__ == "__main__":
     import sys
 
