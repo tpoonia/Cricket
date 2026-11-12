@@ -1,0 +1,7 @@
+id,rater_a_label,note
+pitch_dry_03,dry,brown surface with crack lines
+pitch_green_05,green,uniform green grass texture
+pitch_wet_01,wet,dark surface with water droplets/puddles
+sky_night_02,night,dark sky with floodlight glows
+sky_overcast_00,overcast,flat grey sky
+uninformative_04,uninformative,grey noise/blur with no pitch or sky visible
