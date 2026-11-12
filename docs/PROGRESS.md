@@ -70,3 +70,59 @@ Built on the F9 machinery via per-over pace/spin multipliers.
   pace wkt ×1.15; flat/wet neutral). Plumbing + directional tests pass.
 
 Tests green. Cost $0.00. Next: evaluation harness + non-VLM arms (real results), VLM client (mock), synthetic images.
+
+## M4/M7 — VLM client + full Set R evaluation (Thu 12 Nov)
+
+- **VLM client** (`src/vlm/`): strict JSON schema, disk cache (hash of model+prompt+image), k runs,
+  budget guard (<$10), real gemini/claude/ollama backends (gated) + deterministic class-conditioned
+  **mock** (offline). No key present -> mock used; API cost **$0.00**.
+- **Set R** = 250 decisive 2025-26 matches, established teams. All arms run under blind + condition-aware.
+
+**Decision metrics (condition-aware, ΔP(win) vs B3, 95% CI, Holm):**
+```
+B4_oracle/B5_prior : -0.0002  [-0.0011, +0.0005]   XI change 6%   (correct rule ~ no gain)
+B7_swap            : -0.0041   Holm p=4.1e-06       (WRONG rules hurt)
+Habit              : -0.0034   Holm p=5e-04
+Ours1_label_mock   : -0.0016   Ours2_rules_mock: -0.0127   Ref(real XI): -0.075
+```
+Blind control: B4/B5 ≈ 0 (CI straddles 0), wrong rules negative (pure value cost). As expected.
+
+## M8 — Figures + tables + one-page PDF (Thu 12 Nov)
+`results/metrics.json` (every paper number, by script). 6 CVD-safe figures (Okabe-Ito):
+pipeline, three-XI, per-class perception, extraction F1, ΔP(win) by arm, noisy-rule curve.
+One-page `paper/results_summary.pdf` for the TA. Set S extraction (mock): label F1 **0.98**, rules F1 **0.71**.
+
+## M9 — Paper draft (Thu 12 Nov)
+`paper/main.tex` (clean `article` template — AAAI kit not downloadable offline, logged D-note),
+`paper/numbers.tex` (auto-generated macros), `paper/refs.bib`, 6 figures. ~4 pages + refs: abstract,
+intro (gap), related work, method, experiments, results, limitations, data statement. **No LaTeX engine
+in this env** -> source ships + documented compile (`pdflatex main; bibtex main; pdflatex x2`).
+Citations that could not be cross-checked (no research reports) are flagged `NEEDS-VERIFY` in refs.bib.
+
+## M10 — Final check + handover (Thu 12 Nov)
+
+**Full suite: `66 passed in 16.52s`.** `scripts/run_vision_constraints.py --all` reproduces every
+result from cache; `--report` rebuilds metrics/figures/PDF.
+
+### HANDOVER — how to run, demo, and what humans must still do
+1. **Setup:** `python3.12 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`.
+2. **Reproduce everything (from cache):** `python scripts/run_vision_constraints.py --all`
+   (add `--force` to recompute the simulators; ~a few minutes at n=5000).
+3. **Tests (keep-green gate):** `python scripts/run_tests.py` -> 66 pass.
+4. **Demo (offline, <5 min):** `streamlit run app/streamlit_app.py` -> pick a team, see three XIs by condition.
+5. **Compile paper:** `cd paper && pdflatex main && bibtex main && pdflatex main && pdflatex main`
+   (needs a LaTeX install — not present here).
+
+**Humans must still (by Fri 20 Nov midday):**
+- Add `GEMINI_API_KEY`/`ANTHROPIC_API_KEY` to `.env` (or install Ollama `ollama pull qwen3-vl:4b`) and
+  re-run with `--backend gemini|claude|ollama` to replace the **mock** VLM numbers with real ones.
+- Generate real photoreal images (`src/synthetic/generate.py:generate_sdxl`, needs torch+diffusers+MPS)
+  to replace procedural placeholders, then re-run the CLIP image check.
+- Fill `data/synthetic/human_check_sheet.csv` with two human raters (the paper says "human check pending").
+- Drop the two research reports into `docs/research/` and verify `NEEDS-VERIFY` citations
+  (`anthropic-skills:deep-research`). Final read + submit.
+
+### Merge summary (branch kept; NOT merged/pushed per instructions)
+Branch `feat/vision-to-constraints`, ~16 conventional commits, built on `main` (repo-setup commit).
+All milestones M0–M10 delivered; VLM-on-real-photo numbers are the only mock-backed part (keys absent).
+Owner to review and merge.

@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+% AAAI 2027 author kit was not downloadable in this offline build (see docs/DECISIONS.md);
+% a clean article template is used. Swap \documentclass for aaai27.sty to retarget.
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\input{numbers.tex}  % auto-generated macros; every number comes from results/metrics.json
+
+\title{Seeing conditions, writing constraints:\\ VLMs as constraint writers for cricket team selection}
+\author{Anonymous (NeSy-FM @ AAAI 2027 submission)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Foundation models can translate \emph{written} optimisation problems into solvable models, and
+recent work reads numbers drawn in diagrams. We ask a different question: can a vision--language
+model (VLM) infer optimisation \emph{constraints} that a natural photo only \emph{implies}---for
+example, that a dry, cracked cricket pitch calls for more spin bowlers---and do such constraints
+actually improve the decision? We build an end-to-end, leakage-controlled pipeline for men's T20
+international team selection: a VLM reads a condition image (or weather text) and either names the
+condition (mapped to a frozen rulebook) or writes pace/spin constraints directly; a rule checker
+validates and combines them; a MILP selects the XI maximising player value subject to cricket and
+environment rules; and a validated ball-by-ball simulator scores the resulting win probability. On
+\SetRN{} real 2025--26 matches, a condition-aware simulator (Brier \SimCABrier, AUC \SimCAAUC{} on
+held-out games, beating a coin flip) shows that correct environment rules change the value-maximising
+XI only \OracleChange\% of the time and yield a win-probability change indistinguishable from zero
+($\OracleDelta$, 95\% CI $[\OracleCIlo, \OracleCIhi]$), whereas \emph{deliberately wrong} rules
+reliably hurt (pace/spin swap $\SwapDelta$, Holm $p=\SwapHolmP$). Extraction itself is accurate in
+label mode (constraint F1 \ExLabelF) and noisier when rules are written directly (F1 \ExRulesF). Our
+results are simulator-based and exploratory; we make no claim about winning real matches.
+\end{abstract}
+
+\section{Introduction}
+Optimisation modelling from natural language (NL4Opt~\cite{nl4opt}) and, more recently, from
+diagrams that \emph{depict} quantities, has shown that foundation models can produce the formal parts
+of an optimisation problem. These settings give the model the quantities explicitly. Many real
+decisions instead rest on conditions that are only \emph{implied} by a scene: a groundskeeper and a
+captain look at a pitch and infer how it will play. We test whether a VLM can make that leap---turning
+a photograph of \emph{conditions} into \emph{constraints}---and, crucially, whether the inferred
+constraints are correct and whether they improve the downstream decision. We instantiate the question
+in T20 international cricket, where conditions famously shape the balance of pace and spin bowlers.
+
+\paragraph{Contributions.} (i) An end-to-end, leakage-controlled pipeline from a condition image to a
+legal XI and a simulated win probability. (ii) A frozen rulebook and rule checker that turn condition
+labels into validated MILP constraints with a feasibility fallback. (iii) A validated ball-by-ball
+simulator (blind and condition-aware) used as an honest decision oracle. (iv) An evaluation on
+\SetRN{} real matches plus a synthetic set with known truth, separating \emph{extraction} quality
+from \emph{decision} value, with full statistical controls.
+
+\section{Related work}
+Text-to-optimisation (NL4Opt~\cite{nl4opt}) and multimodal optimisation benchmarks that read numeric
+content from diagrams (e.g.\ MM-OptBench~\cite{mmoptbench}) establish that models can emit formal
+constraints when the quantities are present in the input. Our setting differs in that the constraints
+are \emph{not present}---they must be inferred from the appearance of natural conditions. Cricket
+analytics has a long line of simulators and selection heuristics; we use a simple, validated simulator
+only as a measurement instrument, not as a contribution in itself. Data are from Cricsheet and
+Open-Meteo (see Data statement).
+
+\section{Method}
+\begin{figure}[t]\centering
+\includegraphics[width=\linewidth]{figures/fig1_pipeline.png}
+\caption{Pipeline: a condition image (or weather text) $\to$ VLM (label or rules) $\to$ rulebook +
+checker $\to$ MILP $\to$ XI $\to$ simulator $\to$ evaluation.}\label{fig:pipeline}
+\end{figure}
+
+\paragraph{Data and no-leakage.} We parse all men's T20Is from Cricsheet into tidy tables (matches,
+XIs, deliveries), flagging super overs and rain/D-L games. Every feature, player value, venue prior
+and simulator rate is computed only from matches strictly \emph{before} the match being evaluated, via
+a single \texttt{history\_before} gate; a unit test fails if any feature reads a match on or after the
+target date. Player bowling type (pace/spin) comes from the \texttt{cricketdata} \texttt{player\_meta}
+table (no scraping).
+
+\paragraph{Selection.} For each team--match we form a pool from the team's previous ten XIs (pool
+coverage of the real XI is 90\%). A player's value is runs above average plus runs saved, with
+empirical-Bayes shrinkage. A MILP (PuLP+HiGHS) picks exactly eleven players---at least one keeper and
+five bowling options---maximising total value, subject to optional environment rules
+$\mathrm{lo}\le\sum_{i\in\text{type}}x_i\le\mathrm{hi}$. Every selected XI's legality and value are
+recomputed independently from player ids.
+
+\paragraph{Conditions and rules.} A frozen rulebook maps condition labels to pace/spin bounds (e.g.\
+dry $\Rightarrow n_\text{spin}\ge2$; green $\Rightarrow n_\text{pace}\ge3,\,n_\text{spin}\le1$). The
+checker validates the schema, combines rule sets by the tighter bound with a fixed clash priority, and
+relaxes any rule the pool cannot meet (logged). The VLM client (one interface over hosted and local
+models, with strict JSON and $k$ runs) operates in a \emph{label} mode (mapped through the rulebook)
+or a \emph{rules} mode (constraints written directly).
+
+\paragraph{Simulator.} A vectorised ball-by-ball Monte Carlo draws each ball from a categorical
+outcome distribution combining phase-shrunk batter and bowler rates; a \emph{condition-aware} variant
+multiplies per-venue pace/spin wicket and boundary rates (fitted on an earlier window), and a
+\emph{planted} variant injects known effects for synthetic scenarios. We use common random numbers
+across arms and $\ge$10{,}000 sims per match.
+
+\section{Experiments}
+\paragraph{Arms.} B2 value-only; B3 cricket rules only; B4 oracle (true) environment rules; B5
+venue-prior rules; B7 noisy rules (shift $\pm1$, pace/spin swap); Habit (team's usual spin count);
+Ours-1 (VLM label$\to$rulebook); Ours-2 (VLM rules); Ref (real XI). Set R is \SetRN{} decisive
+full-length 2025--26 matches between teams with $\ge$10 prior matches. Set S is a synthetic image set
+with known pitch classes. The unit of analysis is the team--match; we report paired bootstrap 95\%
+CIs (resampled by match), a Wilcoxon signed-rank test for $\Delta P(\text{win})$, and Holm correction
+over the pre-registered arm comparisons.
+
+\paragraph{Simulator validation.} On held-out matches the blind simulator attains Brier
+\SimBlindBrier{} and AUC \SimBlindAUC{} ($n=\SimNMatches$), beating the coin-flip references
+(0.25/0.5); the condition-aware simulator is within Monte-Carlo noise (Brier \SimCABrier, AUC
+\SimCAAUC). The venue effect is near-symmetric across the two teams, so it barely changes win
+\emph{prediction}; its role is to make the \emph{decision} sensitive to pace/spin balance.
+
+\section{Results}
+\begin{figure}[t]\centering
+\includegraphics[width=\linewidth]{figures/fig5_delta_pwin.png}
+\caption{$\Delta P(\text{win})$ vs.\ B3 by arm on Set R (95\% CI), under the blind and condition-aware
+simulators. Correct rules (B4/B5) sit at zero; wrong rules (swap, Habit) are negative.}\label{fig:delta}
+\end{figure}
+
+\paragraph{Correct rules rarely change the decision.} The oracle/venue-prior rule changes the XI only
+\OracleChange\% of the time and moves win probability by $\OracleDelta$ (95\% CI
+$[\OracleCIlo,\OracleCIhi]$)---indistinguishable from zero---because the value-maximising baseline
+already selects a balanced attack. Under the blind control the same arm gives $\OracleDeltaBlind$.
+
+\paragraph{Wrong rules reliably hurt.} Swapping pace for spin gives $\SwapDelta$ (Holm $p=\SwapHolmP$)
+and the ``habit'' rule $\HabitDelta$; the real selectors' XI is far from value-optimal under the
+simulator ($\RefDelta$), as expected for a simulator that rewards our value proxy. This asymmetry
+(zero for right, negative for wrong) shows the simulator is directionally sensitive while the decision
+margin for \emph{adding} a correct constraint is small.
+
+\paragraph{Extraction quality.} On Set S the label mode is accurate---schema validity
+\ExLabelSchema, exact set match \ExLabelExact, constraint F1 \ExLabelF, NL4Opt accuracy \ExLabelNL,
+$k$-run Fleiss $\kappa=\ExLabelKappa$---while writing rules directly is noisier (exact \ExRulesExact,
+F1 \ExRulesF). Under a planted simulator where conditions genuinely matter ($\pm$15\% effects,
+\SetSCarriers{} carriers), even oracle constraints do not beat B3 ($\SetSPlantedOracle$): the player
+value sacrificed by deviating outweighs the condition benefit at realistic effect sizes.
+\emph{(VLM extraction here uses a deterministic mock backend; real-photo, real-VLM numbers require an
+API key or local Ollama and are left for a hosted run---see Limitations.)}
+
+\section{Limitations}
+Results are simulator-based and exploratory; we make no claim of winning real matches. The headline
+VLM-extraction figures use a mock backend because no reader API key or local VLM was available in this
+build; the client, caching and prompts are in place for a one-line swap. Synthetic images are
+procedural placeholders (a real SDXL path ships but was not run); the automated image check is
+therefore a plumbing check and a human check is pending. Bowling-type coverage is 78\% of bowlers
+(associate-nation players dominate the remainder). The decision effect we measure is specific to our
+value objective and simulator; a different objective or larger condition effects could change the
+sign.
+
+\section{Data statement}
+Match data: Cricsheet (\url{https://cricsheet.org}), ODC-By 1.0. Weather: Open-Meteo
+(\url{https://open-meteo.com}), CC BY 4.0. Player metadata: the \texttt{cricketdata} R package
+(rOpenSci). Synthetic images generated by us. No scraping of ESPNcricinfo, Cricbuzz or Getty. Code and
+every number are reproducible from cache via \texttt{scripts/run\_vision\_constraints.py --all}.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}

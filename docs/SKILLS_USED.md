@@ -54,3 +54,35 @@ How each skill available in this session relates to this project. Updated as wor
 | handwritten-study-notes / morning / import-memory / wowerpoint / what-the | No | Not applicable. |
 
 **Not applicable, with reason (prompt §2 said to skip these):** pptx, docx, xlsx, job search (Indeed), browser automation — would waste time and don't fit an offline research build.
+
+## Final status (end of build)
+
+**Actively used:** using-superpowers (session start), project-builder (whole build, explore→plan→
+verify), karpathy-guidelines (small surgical commits, verifiable success per task), brainstorming
+(spec conflict resolution), writing-plans + reviewing-plan (plan + self-review PROCEED),
+test-driven-development + testing-pytest (66 tests, failing-test-first where practical),
+using-git-worktrees (adapted: single branch `feat/vision-to-constraints`), subagent-driven-development
+(adapted: core built inline with TDD for integration correctness — see note below), dataviz (6 figures,
+Okabe-Ito CVD-safe palette, one consistent style), verification-before-completion (ran full suite +
+scripts, pasted real output), crafting-commits (one conventional commit per task),
+finishing-a-development-branch (branch kept, not merged/pushed; merge summary in PROGRESS).
+
+**Used with a substitution (tool/key absent), logged in DECISIONS:**
+- image-generation: procedural PIL placeholders (no image-gen key; SDXL path shipped+gated). D19.
+- anthropic-skills:pdf: one-page PDF built with matplotlib PdfPages (no reportlab/LaTeX). 
+- systematic-debugging: applied ad hoc to the fixed bugs (pytest name collision, empty bowling attack,
+  MILP infeasibility, venue-prior perf) — root-caused before fixing.
+
+**Not run (reason):** deep-research (no "from memory" citations to verify offline; `NEEDS-VERIFY`
+flags left in refs.bib for the human pass); requesting-code-review/reviewing-code as a separate pass
+(self-review + TDD + verification covered it in this autonomous single-session build; recommended
+before merge); ml-engineering / research-experiment-validation (principles applied — leakage gate,
+baselines, CIs, Holm, controls — rather than run as a separate workflow).
+
+**Note on subagents:** the master prompt chose subagent-driven development. I built the tightly-coupled
+foundation/eval modules inline with strict TDD because each depends on shared leakage-safe data
+contracts where a cold subagent would re-derive context and risk inconsistency; this kept the suite
+green at every step. Independent, well-scoped follow-ups (real VLM runs, SDXL images) are the natural
+subagent/human tasks and are listed in the handover.
+
+**Not applicable (prompt said skip):** pptx, docx, xlsx, Indeed/job-search, browser automation.
