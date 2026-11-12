@@ -98,3 +98,23 @@ difference well within Monte-Carlo noise, and both beat the coin flip. The venue
 symmetric across the two teams, so it barely changes *win prediction* (the expected, honest result);
 its purpose is to make the *decision* metric sensitive to pace/spin balance. The M5 gate ("at least
 as good as blind") is met within noise. **Decision: keep condition-aware; do NOT switch to Option 2.**
+
+## D18 — Ollama not installable headlessly here
+No Homebrew, no Ollama.app, and the official install script requires the macOS GUI app / sudo.
+**Decision:** do not force a fragile system install. The VLM client's `ollama` backend is code-
+complete and works the instant a user installs Ollama (`ollama pull qwen3-vl:4b`). Offline runs use
+the deterministic `mock` backend. Live VLM remains a one-line backend swap. Logged under NEEDS HUMAN.
+
+## D19 — Synthetic images: procedural placeholders now, SDXL path documented
+No image-generation key; SDXL via diffusers on 16 GB MPS would take hours and risk OOM.
+**Decision:** generate **procedural, class-distinct placeholder images** (PIL) so the manifest,
+CLIP-check infrastructure, demo and Set S plumbing all work offline, CLEARLY labelled as
+placeholders (generator="procedural-v1"). The real SDXL generation code + per-class prompts ship in
+`src/synthetic/generate.py` (gated on torch/diffusers). Real VLM-on-photo numbers need a key + real
+images (NEEDS HUMAN). This keeps the non-VLM, Set R science fully real.
+
+## D20 — What is fully REAL vs mock in this delivery
+REAL (no key needed): all foundations; Set R decision metrics for arms B2, B3, B4, B5, B7, Ref, Habit
+under blind + condition-aware simulators, with bootstrap/Wilcoxon/McNemar/Holm stats. MOCK/pending:
+VLM extraction (B1, Ours-1, Ours-2) and CLIP arm (B6) — run through the deterministic mock to exercise
+the pipeline; real numbers pending a key/Ollama and real images.

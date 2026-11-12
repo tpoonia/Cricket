@@ -83,6 +83,42 @@ def venue_spin_share(
     }
 
 
+def all_venue_spin_shares(asof, matches: pd.DataFrame, deliveries: pd.DataFrame) -> dict[str, dict]:
+    """Efficient single-pass spin share for EVERY venue, as-of `asof` (global computed once)."""
+    hist = matches[matches["date"] < pd.Timestamp(asof)]
+    dl = deliveries[deliveries["match_id"].isin(set(hist["match_id"])) & (~deliveries["is_super_over"])]
+    legal = dl[~dl["extra_type"].isin(["wides", "noballs"])].copy()
+    legal["btype"] = _spin_flags(legal)
+    legal = legal.merge(hist[["match_id", "venue"]], on="match_id", how="left")
+    typed = legal[legal["btype"] != "unknown"]
+
+    g_sb = int((typed["btype"] == "spin").sum())
+    g_tb = int(len(typed))
+    p_global = g_sb / g_tb if g_tb else 0.33
+
+    wk = typed[typed["wicket_kind"].isin(BOWLER_WICKETS)]
+    gw_s = int((wk["btype"] == "spin").sum())
+    gw_t = int(len(wk))
+    p_global_w = gw_s / gw_t if gw_t else 0.33
+
+    out: dict[str, dict] = {}
+    balls = typed.groupby("venue")["btype"].agg(
+        spin=lambda s: (s == "spin").sum(), total="count"
+    )
+    wkts = wk.groupby("venue")["btype"].agg(
+        spin=lambda s: (s == "spin").sum(), total="count"
+    )
+    for venue in hist["venue"].dropna().unique():
+        v_sb = int(balls["spin"].get(venue, 0)); v_tb = int(balls["total"].get(venue, 0))
+        v_sw = int(wkts["spin"].get(venue, 0)); v_tw = int(wkts["total"].get(venue, 0))
+        overs = (v_sb + K_COUNTRY * p_global) / (v_tb + K_COUNTRY)
+        w = (v_sw + K_COUNTRY * p_global_w) / (v_tw + K_COUNTRY)
+        out[venue] = {"venue": venue, "overs_spin_share": overs, "wickets_spin_share": w,
+                      "n_balls": v_tb, "raw_overs_spin_share": (v_sb / v_tb) if v_tb else None,
+                      "global_overs_spin_share": p_global}
+    return out
+
+
 def venue_prior_rule(share: dict, upper: float, lower: float) -> list[dict]:
     """Map a venue spin share to a rule (DECISIONS D10 thresholds)."""
     s = share["overs_spin_share"]
