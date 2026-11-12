@@ -90,3 +90,11 @@ Manual overrides in the same CSV take precedence. All 123 venues have a `city`. 
 The "≥10 prior matches" filter admits many associate teams (Malaysia, Indonesia, Romania, …).
 These qualify under MASTER_PROMPT §3.3. Set R will be drawn from this pool; the paper will note the
 mix skews to associate cricket and report results overall and for Full-Member-only matches as a cut.
+
+## D17 — M5 condition-aware simulator kept (no Option 2 fallback)
+Condition-aware per-venue pace/spin multipliers (shrink pseudo-balls=3500) give, on 300 held-out
+established-team matches (n=6000): Brier 0.2434 vs blind 0.2422; AUC 0.6317 vs blind 0.6341 — a
+difference well within Monte-Carlo noise, and both beat the coin flip. The venue effect is near-
+symmetric across the two teams, so it barely changes *win prediction* (the expected, honest result);
+its purpose is to make the *decision* metric sensitive to pace/spin balance. The M5 gate ("at least
+as good as blind") is met within noise. **Decision: keep condition-aware; do NOT switch to Option 2.**

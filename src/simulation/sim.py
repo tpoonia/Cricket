@@ -65,6 +65,7 @@ class SimTables:
     bat_balls: np.ndarray  # [P, 3] balls faced (for attack selection)
     bowl_balls: np.ndarray  # [P, 3] balls bowled
     position: dict  # player_id -> median batting position
+    bowl_type_code: np.ndarray  # [P] 0=pace, 1=spin, 2=unknown
 
 
 def build_rates(before_date=SPLIT_DATE, matches=None, deliveries=None) -> SimTables:
@@ -122,8 +123,15 @@ def build_rates(before_date=SPLIT_DATE, matches=None, deliveries=None) -> SimTab
         extras_per_ball[ph] = g["runs_extras"].sum() / max(legal_n, 1)
 
     position = _batting_positions(before_date, matches, deliveries)
+
+    from src.conditions.player_types import load_player_types
+
+    types = load_player_types()["bowl_type"]
+    code = {"pace": 0, "spin": 1, "unknown": 2}
+    bowl_type_code = np.array([code.get(types.get(p, "unknown"), 2) for p in players])
+
     return SimTables(idx, bat_dist, bowl_dist, pop_phase, extras_per_ball,
-                     bat_balls, bowl_balls, position)
+                     bat_balls, bowl_balls, position, bowl_type_code)
 
 
 def _batting_positions(before_date, matches, deliveries) -> dict:
@@ -175,13 +183,26 @@ def _order_batting(team_xi: list[str], tb: SimTables) -> list[int]:
 
 
 def simulate_innings(bat_idx: list[int], attack: list[int], tb: SimTables,
-                     rng: np.random.Generator, n: int) -> np.ndarray:
-    """Vectorised innings: returns array of N total scores."""
+                     rng: np.random.Generator, n: int, venue_mult: dict | None = None) -> np.ndarray:
+    """Vectorised innings: returns array of N total scores.
+
+    venue_mult (condition-aware / planted): dict mapping (type, "wkt"|"run") -> multiplier,
+    type in {"pace","spin"}. Scales the per-ball wicket and boundary probabilities when the
+    over's bowler is of that type, then renormalises.
+    """
     order = [b for b in bat_idx if b >= 0]
     if len(order) < 2:
         return np.zeros(n)
     order_arr = np.array(order + [order[-1]] * (MAX_WICKETS + 2))  # pad
     sched = _over_schedule(attack)
+
+    # per-over multipliers from the over's bowler type
+    wmult = rmult = None
+    if venue_mult:
+        tname = {0: "pace", 1: "spin", 2: None}
+        tcode = [int(tb.bowl_type_code[b]) if b >= 0 else 2 for b in sched]
+        wmult = np.array([venue_mult.get((tname[c], "wkt"), 1.0) if tname[c] else 1.0 for c in tcode])
+        rmult = np.array([venue_mult.get((tname[c], "run"), 1.0) if tname[c] else 1.0 for c in tcode])
 
     striker = np.zeros(n, dtype=int)      # index into order_arr
     non_striker = np.ones(n, dtype=int)
@@ -200,6 +221,11 @@ def simulate_innings(bat_idx: list[int], attack: list[int], tb: SimTables,
         combined = bat_d * bowl_d[None, :] / np.where(pop > 0, pop, 1e-9)
         combined = np.clip(combined, 1e-12, None)
         combined /= combined.sum(axis=1, keepdims=True)
+        if wmult is not None:
+            combined[:, 6] *= wmult[over]
+            combined[:, 4] *= rmult[over]
+            combined[:, 5] *= rmult[over]
+            combined /= combined.sum(axis=1, keepdims=True)
         cdf = np.cumsum(combined, axis=1)
         u = rng.random(n)
         oc = (u[:, None] > cdf).sum(axis=1)                # 0..6
@@ -230,17 +256,20 @@ def simulate_innings(bat_idx: list[int], attack: list[int], tb: SimTables,
 
 
 def win_probability(team1_xi, team2_xi, bat_first: int, tb: SimTables,
-                    n: int = 10000, seed: int = 0) -> float:
-    """P(team1 wins). bat_first in {1,2}: which team bats first. CRN via seed."""
+                    n: int = 10000, seed: int = 0, venue_mult: dict | None = None) -> float:
+    """P(team1 wins). bat_first in {1,2}: which team bats first. CRN via seed.
+
+    venue_mult (optional): condition-aware/planted multipliers applied to both innings.
+    """
     rng = np.random.default_rng(seed)
     o1, o2 = _order_batting(team1_xi, tb), _order_batting(team2_xi, tb)
     a1, a2 = _attack(team1_xi, tb), _attack(team2_xi, tb)
     if bat_first == 1:
-        s1 = simulate_innings(o1, a2, tb, rng, n)
-        s2 = simulate_innings(o2, a1, tb, rng, n)
+        s1 = simulate_innings(o1, a2, tb, rng, n, venue_mult)
+        s2 = simulate_innings(o2, a1, tb, rng, n, venue_mult)
     else:
-        s2 = simulate_innings(o2, a1, tb, rng, n)
-        s1 = simulate_innings(o1, a2, tb, rng, n)
+        s2 = simulate_innings(o2, a1, tb, rng, n, venue_mult)
+        s1 = simulate_innings(o1, a2, tb, rng, n, venue_mult)
     wins = (s1 > s2).mean()
     ties = (s1 == s2).mean()
     return float(wins + 0.5 * ties)

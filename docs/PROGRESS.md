@@ -58,3 +58,15 @@ blind sim validation: {'n_matches': 250, 'brier': 0.2368, 'auc': 0.659,
 
 Established-team holdout has **871** eligible matches (plenty for Set R 150–300) across **123 venues**.
 Cost: **$0.00**. Next: M1b conditions (venue coords via Open-Meteo geocoding, weather, venue prior), then M2 rules.
+
+## M5 — Condition-aware + planted simulators (Thu 12 Nov)
+
+Built on the F9 machinery via per-over pace/spin multipliers.
+- **Condition-aware** (per-venue, fit on train era, shrink 3500 pseudo-balls): e.g. MCG spin-wkt×0.88,
+  Kuala Lumpur spin-wkt×1.13 & runs×0.88 (slow low track). Validation (300 matches, n=6000):
+  Brier **0.2434** (blind 0.2422), AUC **0.6317** (blind 0.6341) — within MC noise, both beat coin flip.
+  **M5 gate met; no Option 2 fallback** (DECISIONS D17).
+- **Planted** (Set S): fixed multipliers by true pitch class (dry→spin wkt ×1.15, pace ×0.95; green→
+  pace wkt ×1.15; flat/wet neutral). Plumbing + directional tests pass.
+
+Tests green. Cost $0.00. Next: evaluation harness + non-VLM arms (real results), VLM client (mock), synthetic images.

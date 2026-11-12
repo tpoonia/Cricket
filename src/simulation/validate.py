@@ -57,6 +57,7 @@ def evaluate(
     sample: pd.DataFrame,
     n: int = 4000,
     win_prob_fn=win_probability,
+    pass_venue: bool = False,
     **kwargs,
 ) -> dict:
     preds, ys = [], []
@@ -66,7 +67,10 @@ def evaluate(
         if len(t1x) < 7 or len(t2x) < 7:
             continue
         bf = bat_first_team(m)
-        p1 = win_prob_fn(t1x, t2x, bf, tb, n=n, seed=seed, **kwargs)
+        call_kwargs = dict(kwargs)
+        if pass_venue:
+            call_kwargs["venue"] = m["venue"]
+        p1 = win_prob_fn(t1x, t2x, bf, tb, n=n, seed=seed, **call_kwargs)
         preds.append(p1)
         ys.append(1 if m["winner"] == m["team1"] else 0)
     preds, ys = np.array(preds), np.array(ys)
