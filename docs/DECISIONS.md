@@ -1,0 +1,80 @@
+# Decisions log
+
+Format: decision — reason — alternatives considered. Thresholds are fixed here **before** seeing results.
+
+## Approvals (autonomous mode)
+- **Spec approved** once self-reviewed (per MASTER_PROMPT §AUTONOMOUS). Recorded at M0.
+- **Plan approved** once `reviewing-plan` self-review passes.
+- **Execution:** subagent-driven where chunks are independent; core foundations built inline with strict TDD for integration correctness.
+
+## D1 — Missing research reports (BLOCKER noted, worked around)
+`docs/research/` is empty: `Vision to constraints cricket selection.md` and
+`LLM cricket team selection plan.md` are **absent**. MASTER_PROMPT §3 is itself a complete,
+detailed "agreed design", so the spec is built from §3. **Consequence:** any citation the
+reports would have supplied cannot be verified here; the paper will only include citations
+I can verify with `deep-research`, and will mark the rest as needed. Logged under
+"NEEDS HUMAN" in PROGRESS.md. Alternatives: stop (rejected — autonomous mode; §3 is sufficient to build).
+
+## D2 — No API keys present
+No `.env` with `GEMINI_API_KEY` / `ANTHROPIC_API_KEY` (only an unrelated `.env.pages`,
+not read). Ollama is **not installed**. Per §5, the fallback is local Qwen3-VL via Ollama.
+**Decision:** build the full VLM client + caching + schema + all downstream arms so they run
+on cached/mock VLM outputs; make real VLM runs a one-command step that works the moment a key
+is added OR Ollama is installed. Attempt an Ollama install opportunistically; if it fails or is
+too heavy for 16 GB, document it and ship the deterministic mock-backed path. This keeps total
+API spend at **$0** (well under the $10 cap). Alternatives: block on keys (rejected).
+
+## D3 — Python & libraries
+Python 3.12.15 (`~/.local/bin/python3.12`) in `.venv`. MILP via **PuLP + HiGHS (highspy)**
+(prompt-suggested; HiGHS is fast, open source). Data in **Parquet via pyarrow**. Player meta via
+**pyreadr** reading `player_meta.rda`; R 4.5.2 is installed as a fallback path. Stats via scipy/sklearn.
+
+## D4 — Chronological split (F3)
+Train/features: matches **before 2025-01-01**. Test (Set R candidates): **2025-01-01 onward**.
+`history_before(match_date)` gates every feature. Leakage test asserts no feature touches a
+match on/after the target date. (Matches MASTER_PROMPT §3.0 F3.)
+
+## D5 — Odd matches
+Super overs: parsed but **excluded from features and simulation fitting** (kept in a separate
+table). Rain-shortened / D-L matches: **flagged** (`method`, `overs` limit) and excluded from
+simulator fitting; retirements handled as not-out with `player_out` recorded. (Per §5.)
+
+## D6 — Roles thresholds (F6), fixed in advance
+- **Keeper:** a player credited with a stumping, or with ≥1 catch-as-keeper signal, in earlier
+  matches for that team; if none in pool, the player with most dismissals-as-fielder marked `wicket_keeper` in XI metadata when available. Rule logged in code.
+- **Bowling option:** bowled **≥ 6 legal deliveries (1 over)** in **≥ 2 of the team's last 10**
+  matches (earlier matches only). N=6 balls, M=10 matches.
+
+## D7 — Player value (F7) shrinkage
+Empirical-Bayes-style shrinkage toward the population mean with a **fixed prior weight k=10
+"pseudo-matches"**: `v_i = (n_i*raw_i + k*pop_mean) / (n_i + k)`, computed separately for the
+batting and bowling components, earlier matches only. k logged here.
+
+## D8 — Pool (F5)
+Pool = players who appeared for the team in its **previous 10 T20Is** (earlier only), capped at
+**18** (most-recent-appearance priority). "Pool coverage" = % of the real XI inside the pool.
+
+## D9 — Simulator (F9) phases
+Powerplay = overs 1–6, middle = 7–15, death = 16–20. Per-ball outcome probs = batter rate and
+bowler rate each shrunk toward the phase average (k=50 balls), combined multiplicatively and
+renormalised over {0,1,2,3,4,6,wicket,extra}. ≥10,000 sims/match, common random numbers across
+arms. Must beat a coin flip (Brier<0.25, AUC>0.5) on held-out matches.
+
+## D10 — Set R truth thresholds (venue spin share), fixed in advance
+Two settings tested:
+- **Setting A (primary):** upper = 0.45 spin share → `n_spin ≥ 2`; lower = 0.30 → `n_pace ≥ 3`; else no rule.
+- **Setting B (sensitivity):** upper = 0.50; lower = 0.25.
+(Spin share = spin overs / total overs at the venue, earlier matches only, shrunk to host-country then global.)
+
+## D11 — Rulebook frozen
+`configs/rulebook.yaml` matches MASTER_PROMPT §3.2 exactly and is frozen before any model run.
+
+## D12 — Set R size & filter
+150–300 T20Is from 2025-01-01 onward between teams each with ≥10 earlier T20Is. Exact N reported after ETL.
+
+## D13 — k runs per VLM input
+Default **k=5**, temperature>0. Cut order allows k=3 if behind (per §If-behind).
+
+## D14 — Image generator family
+Reader models (Gemini/Claude/Qwen) must differ in family from the generator. Generator = **SDXL via
+diffusers on Apple MPS** (no image-gen key). Logged per §Hard-rule-6.

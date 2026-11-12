@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data (large / downloaded / derived)
+data/raw/
+cache/
+data/processed/
+data/synthetic/images/
+
+# OS
+.DS_Store
+.Rhistory
+
+# Outputs that are regenerable
+results/raw/
+*.log
