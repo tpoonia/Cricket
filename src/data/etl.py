@@ -102,6 +102,12 @@ def parse_match(path: str | Path) -> ParsedMatch:
                 wkts = dl.get("wickets", [])
                 # A delivery can have >1 wicket (rare); take the primary dismissal.
                 wk = wkts[0] if wkts else {}
+                fielder_ids = [
+                    reg.get(f.get("name"))
+                    for f in wk.get("fielders", [])
+                    if f.get("name")
+                ]
+                fielder_ids = [f for f in fielder_ids if f]
                 dl_rows.append(
                     {
                         "match_id": match_id,
@@ -122,6 +128,7 @@ def parse_match(path: str | Path) -> ParsedMatch:
                         "wicket_kind": wk.get("kind"),
                         "player_out": reg.get(wk.get("player_out")) if wk else None,
                         "player_out_name": wk.get("player_out") if wk else None,
+                        "fielders": ",".join(fielder_ids) if fielder_ids else None,
                     }
                 )
 
