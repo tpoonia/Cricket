@@ -37,3 +37,24 @@ wrapper in place. Docs seeded: SKILLS_USED, DECISIONS, DATA, this file.
 
 **Next:** spec (M0), then foundations F1–F9 (M1) with TDD.
 Risk to 15 Nov demo / 20 Nov deadline: live-VLM arms need a key or Ollama (mitigated by cached/mock path).
+
+## M1 + M1b(partial) — Foundations (Thu 12 Nov)
+
+**F1–F9 all built, tested, green (39 tests pass).**
+- F2 ETL: 3,649 matches (2005→2026-11), 80,288 XI rows, 820,658 deliveries; 401 super-over balls flagged; 126 D/L flagged.
+- F3 split: train<2025 = 2,580; holdout≥2025 = 1,069. Strict `history_before`; leakage guard test passes.
+- F5 pool coverage (last-10, cap 18): **90.3%** of real XIs recovered (first 200 holdout team-matches).
+- F4 player types (cricketdata bundled player_meta, no scraping): bowl_type known for **78.5% of bowlers**, **75.4% ball-weighted** in holdout; associate bowlers are the unknowns; +manual override CSV.
+- F7 value (EB k=10): sane (top batters Rizwan/Babar/Kohli/Suryakumar); leakage-safe.
+- F6 roles: keeper via stumpings (all 1,410 stumpings have a keeper fielder), bowling option ≥6 balls in ≥2 of last 10.
+- F8 MILP (PuLP+HiGHS): exactly 11, ≥1 keeper, ≥5 bowling options, env rules, independent verifier; toy tests pass incl. infeasibility.
+- **F9 blind simulator: beats coin flip** — Brier **0.237**<0.25, AUC **0.659**>0.5 on 250 established-team holdout matches (n=5000). CRN via seed.
+
+**Pilot test output (real):**
+```
+blind sim validation: {'n_matches': 250, 'brier': 0.2368, 'auc': 0.659,
+ 'beats_coinflip_brier': True, 'beats_coinflip_auc': True, 'base_rate': 0.452}
+```
+
+Established-team holdout has **871** eligible matches (plenty for Set R 150–300) across **123 venues**.
+Cost: **$0.00**. Next: M1b conditions (venue coords via Open-Meteo geocoding, weather, venue prior), then M2 rules.

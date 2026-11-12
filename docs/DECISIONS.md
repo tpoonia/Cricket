@@ -78,3 +78,15 @@ Default **k=5**, temperature>0. Cut order allows k=3 if behind (per §If-behind)
 ## D14 — Image generator family
 Reader models (Gemini/Claude/Qwen) must differ in family from the generator. Generator = **SDXL via
 diffusers on Apple MPS** (no image-gen key). Logged per §Hard-rule-6.
+
+## D15 — Venue coordinates via Open-Meteo geocoding (not hand-filled)
+MASTER_PROMPT §3.1#2 suggested hand-filling `venue_coords.csv` from Wikipedia. The established-team
+holdout spans **123 venues**, mostly associate-nation grounds that cannot be reliably geolocated from
+memory. **Decision:** resolve coordinates with the **Open-Meteo geocoding API** (free, same CC-BY
+source family, not scraping), query = city (+ country hint), cached to `data/manual/venue_coords.csv`.
+Manual overrides in the same CSV take precedence. All 123 venues have a `city`. Logged per §5.
+
+## D16 — Set R realism note
+The "≥10 prior matches" filter admits many associate teams (Malaysia, Indonesia, Romania, …).
+These qualify under MASTER_PROMPT §3.3. Set R will be drawn from this pool; the paper will note the
+mix skews to associate cricket and report results overall and for Full-Member-only matches as a cut.

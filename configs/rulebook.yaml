@@ -1,0 +1,64 @@
+# Rulebook v1 — FROZEN 2026-11-12, before any model run (MASTER_PROMPT §3.2, Hard rule: freeze).
+# Rule schema: list of {feature: n_pace|n_spin, lo: int, hi: int}, 0 <= lo <= hi <= 11.
+# An empty rules list is a valid answer ("no rule").
+version: 1
+frozen: "2026-11-12"
+
+# canonical label -> {rules, strength}. Synonyms map alternative words to a canonical label.
+labels:
+  green:            # green / grassy / moist pitch
+    strength: strong
+    rules:
+      - {feature: n_pace, lo: 3, hi: 11}
+      - {feature: n_spin, lo: 0, hi: 1}
+  dry:              # dry / cracked pitch
+    strength: strong
+    rules:
+      - {feature: n_spin, lo: 2, hi: 11}
+  slow:             # slow / dusty pitch
+    strength: medium
+    rules:
+      - {feature: n_spin, lo: 2, hi: 11}
+  flat:             # flat / hard pitch
+    strength: none
+    rules: []
+  wet:              # wet / covered pitch (match-length issue, not selection)
+    strength: none
+    rules: []
+  overcast:         # overcast sky
+    strength: weak
+    rules:
+      - {feature: n_pace, lo: 3, hi: 11}
+  clear:            # clear sky
+    strength: none
+    rules: []
+  rain_now:         # rain falling now
+    strength: none
+    rules: []
+  night:            # floodlit night
+    strength: none
+    rules: []
+  uninformative:    # crowd / wide stadium / blur
+    strength: none
+    rules: []
+
+synonyms:
+  grassy: green
+  moist: green
+  cracked: dry
+  dusty: slow
+  hard: flat
+  covered: wet
+  rain: rain_now
+  floodlit: night
+  "night-floodlit": night
+  crowd: uninformative
+  blur: uninformative
+  stadium: uninformative
+
+# Clash resolution priority (higher wins when two rules conflict).
+priority:
+  strong: 3
+  medium: 2
+  weak: 1
+  none: 0

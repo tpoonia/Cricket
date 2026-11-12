@@ -1,0 +1,124 @@
+venue,city,lat,lon,country,source
+Melbourne Cricket Ground,Melbourne,-37.814,144.96332,Australia,open-meteo-geocode
+Dubai International Cricket Stadium,Dubai,25.07725,55.30927,United Arab Emirates,open-meteo-geocode
+"Bayuemas Oval, Kuala Lumpur",Kuala Lumpur,3.1412,101.68653,Malaysia,open-meteo-geocode
+"Saxton Oval, Nelson",Nelson,-41.27078,173.28404,New Zealand,open-meteo-geocode
+"Eden Gardens, Kolkata",Kolkata,22.56263,88.36304,India,open-meteo-geocode
+MA Chidambaram Stadium,Chennai,13.08784,80.27847,India,open-meteo-geocode
+"Niranjan Shah Stadium, Rajkot",Rajkot,22.29161,70.79322,India,open-meteo-geocode
+"Maharashtra Cricket Association Stadium, Pune",Pune,18.51957,73.85535,India,open-meteo-geocode
+"Wankhede Stadium, Mumbai",Mumbai,19.07283,72.88261,India,open-meteo-geocode
+Marsa Sports Club,Marsa,35.87925,14.49462,Malta,open-meteo-geocode
+"Udayana Cricket Ground, Bali",Bali,22.64859,88.34115,India,open-meteo-geocode
+Harare Sports Club,Harare,-17.82772,31.05337,Zimbabwe,open-meteo-geocode
+Singapore National Cricket Ground,Singapore,1.28967,103.85007,Singapore,open-meteo-geocode
+"Hagley Oval, Christchurch",Christchurch,-43.53333,172.63333,New Zealand,open-meteo-geocode
+"University Oval, Dunedin",Dunedin,-45.87416,170.50362,New Zealand,open-meteo-geocode
+"Namibia Cricket Ground, Windhoek",Windhoek,-22.55941,17.08323,Namibia,open-meteo-geocode
+"Eden Park, Auckland",Auckland,-36.84853,174.76349,New Zealand,open-meteo-geocode
+"Bay Oval, Mount Maunganui",Mount Maunganui,-37.64167,176.18611,New Zealand,open-meteo-geocode
+"Sky Stadium, Wellington",Wellington,-41.28664,174.77557,New Zealand,open-meteo-geocode
+Santarem Cricket Ground,Albergaria,40.69318,-8.47994,Portugal,open-meteo-geocode
+"Mission Road Ground, Mong Kok, Hong Kong",Mong Kok,22.31935,114.17136,,open-meteo-geocode
+"Clayton Panama, Panama City",Panama City,8.9936,-79.51973,Panama,open-meteo-geocode
+"Jimmy Powell Oval, Cayman Islands",George Town,5.41123,100.33543,Malaysia,open-meteo-geocode
+Sano International Cricket Ground,Sano,36.31667,139.58333,Japan,open-meteo-geocode
+Sharjah Cricket Stadium,Sharjah,25.3342,55.41221,United Arab Emirates,open-meteo-geocode
+"Gaddafi Stadium, Lahore",Lahore,31.558,74.35071,Pakistan,open-meteo-geocode
+"Velden Cricket Ground, Latschach",Latschach,46.58333,14.03333,Austria,open-meteo-geocode
+"Stars Arena Hofstade, Zemst",Zemst,50.98318,4.46079,Belgium,open-meteo-geocode
+"Riverside Ground, Chester-le-Street",Chester-le-Street,54.85862,-1.57408,United Kingdom,open-meteo-geocode
+"Grainville, St Saviour",St Saviour,,,,unresolved
+"Scott Page Field, Vinor",Prague,50.08804,14.42076,Czechia,open-meteo-geocode
+"County Ground, Bristol",Bristol,51.45523,-2.59665,United Kingdom,open-meteo-geocode
+"The Rose Bowl, Southampton",Southampton,50.90395,-1.40428,United Kingdom,open-meteo-geocode
+"Maple Leaf North-East Ground, King City",King City,36.21274,-121.12603,United States,open-meteo-geocode
+"Ishoj Cricket Club, Vejledalen",Ishoj,55.61543,12.35182,Denmark,open-meteo-geocode
+Koge Cricket Club,Koge,55.45802,12.18214,Denmark,open-meteo-geocode
+"Titwood, Glasgow",Glasgow,55.86515,-4.25763,United Kingdom,open-meteo-geocode
+"Maple Leaf North-West Ground, King City",King City,36.21274,-121.12603,United States,open-meteo-geocode
+"Bready Cricket Club, Magheramason",Bready,54.9154,-7.41926,United Kingdom,open-meteo-geocode
+"Pierre Werner Cricket Ground, Walferdange",Walferdange,49.66321,6.13224,Luxembourg,open-meteo-geocode
+"Moara Vlasiei Cricket Ground, Ilfov County",Ilfov County,,,,unresolved
+"Sportpark Westvliet, The Hague",The Hague,52.07667,4.29861,The Netherlands,open-meteo-geocode
+"TCA Oval, Blantyre",Blantyre,-15.78499,35.00854,Malawi,open-meteo-geocode
+"Vassil Levski National Sports Academy, Sofia",Sofia,42.69751,23.32415,Bulgaria,open-meteo-geocode
+Pallekele International Cricket Stadium,Kandy,7.2906,80.6336,Sri Lanka,open-meteo-geocode
+Rangiri Dambulla International Stadium,Dambulla,7.86,80.65167,Sri Lanka,open-meteo-geocode
+"R Premadasa Stadium, Colombo",Colombo,6.93548,79.84868,Sri Lanka,open-meteo-geocode
+Entebbe Cricket Oval,Entebbe,0.05621,32.47949,Uganda,open-meteo-geocode
+Gahanga International Cricket Stadium,Kigali City,,,,unresolved
+"West End Park International Cricket Stadium, Doha",Doha,25.28545,51.53096,Qatar,open-meteo-geocode
+"Shere Bangla National Stadium, Mirpur",Dhaka,23.7104,90.40744,Bangladesh,open-meteo-geocode
+Sabina Park,Kingston,17.99702,-76.79358,Jamaica,open-meteo-geocode
+"GB Oval, Szodliget",Szodliget,47.73259,19.14749,Hungary,open-meteo-geocode
+"Warner Park, St Kitts",Basseterre,17.2955,-62.72499,Saint Kitts and Nevis,open-meteo-geocode
+"Estonian National Cricket and Rugby Field, Tallinn",Tallinn,59.43696,24.75353,Estonia,open-meteo-geocode
+"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Lauderhill,26.14036,-80.21338,United States,open-meteo-geocode
+"Mladost Cricket Ground, Zagreb",Zagreb,45.81444,15.97798,Croatia,open-meteo-geocode
+"Botkyrka Cricket Center, Stockholm",Stockholm,59.32938,18.06871,Sweden,open-meteo-geocode
+"Marrara Cricket Ground, Darwin",Darwin,-12.46113,130.84184,Australia,open-meteo-geocode
+"King George V Sports Ground, Castel",Castel,39.98567,-0.04935,Spain,open-meteo-geocode
+"Cazalys Stadium, Cairns",Cairns,-16.92366,145.76613,Australia,open-meteo-geocode
+"Stubberudmyra Cricket Ground, Oslo",Oslo,59.91273,10.74609,Norway,open-meteo-geocode
+Sylhet International Cricket Stadium,Sylhet,24.89904,91.87198,Bangladesh,open-meteo-geocode
+"Sheikh Zayed Stadium, Abu Dhabi",Abu Dhabi,24.45118,54.39696,United Arab Emirates,open-meteo-geocode
+Malkerns Country Club Oval,Malkerns,-26.52872,31.19193,Eswatini,open-meteo-geocode
+Old Trafford,Manchester,53.48095,-2.23743,United Kingdom,open-meteo-geocode
+"Queens Sports Club, Bulawayo",Bulawayo,-20.15,28.58333,Zimbabwe,open-meteo-geocode
+"Takashinga Sports Club, Highfield, Harare",Harare,-17.82772,31.05337,Zimbabwe,open-meteo-geocode
+Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1),Al Amarat,23.52417,58.4975,Oman,open-meteo-geocode
+Al Amerat Cricket Ground Oman Cricket (Ministry Turf 2),Al Amarat,23.52417,58.4975,Oman,open-meteo-geocode
+"Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium, Chattogram",Chattogram,22.3384,91.83168,Bangladesh,open-meteo-geocode
+Rawalpindi Cricket Stadium,Rawalpindi,33.59733,73.0479,Pakistan,open-meteo-geocode
+Happy Valley Ground 2,Episkopi,35.32821,24.33525,Greece,open-meteo-geocode
+"Bellerive Oval, Hobart",Hobart,-42.87936,147.3294,Australia,open-meteo-geocode
+"People First Stadium, Carrara",Carrara,44.07926,10.09789,Italy,open-meteo-geocode
+University of Doha for Science and Technology,Doha,25.28545,51.53096,Qatar,open-meteo-geocode
+"Nigeria Cricket Federation Oval 1, Abuja",Abuja,9.05785,7.49508,Nigeria,open-meteo-geocode
+La Manga Club Top Ground,Murcia,37.98704,-1.13004,Spain,open-meteo-geocode
+"Barabati Stadium, Cuttack",Cuttack,20.46497,85.87927,India,open-meteo-geocode
+Gelephu International Cricket Ground,Gelephu,26.88389,90.46836,Bhutan,open-meteo-geocode
+"Terdthai Cricket Ground, Bangkok",Bangkok,13.75398,100.50144,Thailand,open-meteo-geocode
+"Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",New Chandigarh,,,,unresolved
+"Himachal Pradesh Cricket Association Stadium, Dharamsala",Dharamsala,32.22006,76.32013,India,open-meteo-geocode
+"Narendra Modi Stadium, Ahmedabad",Ahmedabad,23.02579,72.58727,India,open-meteo-geocode
+"Vidarbha Cricket Association Stadium, Jamtha, Nagpur",Nagpur,21.14631,79.08491,India,open-meteo-geocode
+"Shaheed Veer Narayan Singh International Stadium, Raipur",Raipur,21.23333,81.63333,India,open-meteo-geocode
+"7he Sevens Stadium, Dubai",Dubai,25.07725,55.30927,United Arab Emirates,open-meteo-geocode
+"Barsapara Cricket Stadium, Guwahati",Guwahati,26.1844,91.7458,India,open-meteo-geocode
+"Boland Park, Paarl",Paarl,-33.73378,18.97523,South Africa,open-meteo-geocode
+"Andhra Cricket Association-Visakhapatnam District Cricket Association Stadium, Visakhapatnam",Visakhapatnam,17.68009,83.20161,India,open-meteo-geocode
+"SuperSport Park, Centurion",Centurion,-25.85891,28.18577,South Africa,open-meteo-geocode
+"Greenfield International Stadium, Thiruvananthapuram",Thiruvananthapuram,8.4855,76.94924,India,open-meteo-geocode
+Sinhalese Sports Club Ground,Colombo,6.93548,79.84868,Sri Lanka,open-meteo-geocode
+Arun Jaitley Stadium,Delhi,28.65195,77.23149,India,open-meteo-geocode
+"Botswana Cricket Association Oval 1, Gaborone",Gaborone,-24.65451,25.90859,Botswana,open-meteo-geocode
+"Seddon Park, Hamilton",Hamilton,43.25011,-79.84963,Canada,open-meteo-geocode
+"Hnry Stadium, Wellington",Wellington,-41.28664,174.77557,New Zealand,open-meteo-geocode
+"Achimota Senior Secondary School B Field, Accra",Accra,5.55602,-0.1969,Ghana,open-meteo-geocode
+"Achimota Senior Secondary School A Field, Accra",Accra,5.55602,-0.1969,Ghana,open-meteo-geocode
+"Tribhuvan University International Cricket Ground, Kirtipur",Kirtipur,27.67851,85.27574,Nepal,open-meteo-geocode
+Bayer Uerdingen Cricket Ground,Krefeld,51.33645,6.55381,Germany,open-meteo-geocode
+"Happy Valley Ground, Episkopi",Episkopi,35.32821,24.33525,Greece,open-meteo-geocode
+Korogi Sports Park,Nisshin,35.13676,137.05238,Japan,open-meteo-geocode
+Sano International Cricket Ground 2,Sano,36.31667,139.58333,Japan,open-meteo-geocode
+"Botswana Cricket Association Oval 2, Gaborone",Gaborone,-24.65451,25.90859,Botswana,open-meteo-geocode
+"Svanholm Park, Brondby",Brondby,55.6455,12.41008,Denmark,open-meteo-geocode
+"White Hill Field, Sandys Parish",Hamilton,43.25011,-79.84963,Canada,open-meteo-geocode
+"Civil Service Cricket Club, Stormont, Belfast",Belfast,54.59682,-5.92541,United Kingdom,open-meteo-geocode
+Kerava National Cricket Ground,Kerava,60.40338,25.105,Finland,open-meteo-geocode
+Trent Bridge,Nottingham,52.9536,-1.15047,United Kingdom,open-meteo-geocode
+"Gymkhana Club Ground, Nairobi",Nairobi,-1.28333,36.81667,Kenya,open-meteo-geocode
+"Los Pinos Polo Club 1, Cundinamarca",Bogota,4.60971,-74.08175,Colombia,open-meteo-geocode
+Tikkurila Cricket Ground,Vantaa,60.29414,25.04099,Finland,open-meteo-geocode
+Gahanga B Ground,Kigali City,,,,unresolved
+"Sophia Gardens, Cardiff",Cardiff,51.48,-3.18,United Kingdom,open-meteo-geocode
+"Tafawa Balewa Square Cricket Oval, Lagos",Lagos,6.45407,3.39467,Nigeria,open-meteo-geocode
+"YSD-UKM Cricket Oval, Bangi",Bangi,10.83368,5.82688,Nigeria,open-meteo-geocode
+"Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",Lucknow,26.83928,80.92313,India,open-meteo-geocode
+"Selangor Turf Club, Kuala Lumpur",Kuala Lumpur,3.1412,101.68653,Malaysia,open-meteo-geocode
+"JSCA International Stadium Complex, Ranchi",Ranchi,23.34316,85.3094,India,open-meteo-geocode
+"Holkar Cricket Stadium, Indore",Indore,22.71792,75.8333,India,open-meteo-geocode
+"Rajiv Gandhi International Stadium, Uppal",Hyderabad,17.38405,78.45636,India,open-meteo-geocode
+"Nigeria Cricket Federation Oval 2, Abuja",Abuja,9.05785,7.49508,Nigeria,open-meteo-geocode
