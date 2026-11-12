@@ -15,6 +15,7 @@ __pycache__/
 data/raw/
 cache/
 data/processed/
+!data/processed/player_meta.csv
 data/synthetic/images/
 
 # OS
