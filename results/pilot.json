@@ -1,0 +1,122 @@
+{
+  "claude": {
+    "backend": "claude",
+    "model": "claude-haiku-5-5",
+    "n": 10,
+    "valid_json": 0,
+    "valid_rate": 0.0,
+    "mean_sec": null,
+    "max_sec": null,
+    "usd_cost": 0.0,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cgye8v1TBMJo2vEy2PnEu'}",
+    "rows": [
+      {
+        "id": "pitch_green_00",
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cgye8v1TBMJo2vEy2PnEu'}"
+      }
+    ]
+  },
+  "ollama": {
+    "backend": "ollama",
+    "model": "qwen3-vl:8b",
+    "n": 10,
+    "valid_json": 10,
+    "valid_rate": 1.0,
+    "mean_sec": 33.86,
+    "max_sec": 62.95,
+    "usd_cost": 0.0,
+    "error": null,
+    "rows": [
+      {
+        "id": "pitch_green_00",
+        "intended": "green",
+        "kind": "pitch",
+        "pred_pitch": "green",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 28.98
+      },
+      {
+        "id": "pitch_dry_00",
+        "intended": "dry",
+        "kind": "pitch",
+        "pred_pitch": "dry",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 62.95
+      },
+      {
+        "id": "pitch_flat_00",
+        "intended": "flat",
+        "kind": "pitch",
+        "pred_pitch": "dry",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 41.58
+      },
+      {
+        "id": "pitch_slow_00",
+        "intended": "slow",
+        "kind": "pitch",
+        "pred_pitch": "dry",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 34.14
+      },
+      {
+        "id": "pitch_wet_00",
+        "intended": "wet",
+        "kind": "pitch",
+        "pred_pitch": "wet",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 34.03
+      },
+      {
+        "id": "sky_clear_00",
+        "intended": "clear",
+        "kind": "sky",
+        "pred_pitch": "green",
+        "pred_sky": "clear",
+        "schema_ok": true,
+        "sec": 27.18
+      },
+      {
+        "id": "sky_overcast_00",
+        "intended": "overcast",
+        "kind": "sky",
+        "pred_pitch": "green",
+        "pred_sky": "overcast",
+        "schema_ok": true,
+        "sec": 25.37
+      },
+      {
+        "id": "sky_rain_now_00",
+        "intended": "rain_now",
+        "kind": "sky",
+        "pred_pitch": "wet",
+        "pred_sky": "rain_now",
+        "schema_ok": true,
+        "sec": 26.58
+      },
+      {
+        "id": "sky_night_00",
+        "intended": "night",
+        "kind": "sky",
+        "pred_pitch": "green",
+        "pred_sky": "night",
+        "schema_ok": true,
+        "sec": 28.54
+      },
+      {
+        "id": "pitch_green_01",
+        "intended": "green",
+        "kind": "pitch",
+        "pred_pitch": "green",
+        "pred_sky": "uninformative",
+        "schema_ok": true,
+        "sec": 29.21
+      }
+    ]
+  }
+}

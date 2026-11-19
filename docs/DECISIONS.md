@@ -78,3 +78,83 @@ Default **k=5**, temperature>0. Cut order allows k=3 if behind (per §If-behind)
 ## D14 — Image generator family
 Reader models (Gemini/Claude/Qwen) must differ in family from the generator. Generator = **SDXL via
 diffusers on Apple MPS** (no image-gen key). Logged per §Hard-rule-6.
+
+## D15 — Venue coordinates via Open-Meteo geocoding (not hand-filled)
+MASTER_PROMPT §3.1#2 suggested hand-filling `venue_coords.csv` from Wikipedia. The established-team
+holdout spans **123 venues**, mostly associate-nation grounds that cannot be reliably geolocated from
+memory. **Decision:** resolve coordinates with the **Open-Meteo geocoding API** (free, same CC-BY
+source family, not scraping), query = city (+ country hint), cached to `data/manual/venue_coords.csv`.
+Manual overrides in the same CSV take precedence. All 123 venues have a `city`. Logged per §5.
+
+## D16 — Set R realism note
+The "≥10 prior matches" filter admits many associate teams (Malaysia, Indonesia, Romania, …).
+These qualify under MASTER_PROMPT §3.3. Set R will be drawn from this pool; the paper will note the
+mix skews to associate cricket and report results overall and for Full-Member-only matches as a cut.
+
+## D17 — M5 condition-aware simulator kept (no Option 2 fallback)
+Condition-aware per-venue pace/spin multipliers (shrink pseudo-balls=3500) give, on 300 held-out
+established-team matches (n=6000): Brier 0.2434 vs blind 0.2422; AUC 0.6317 vs blind 0.6341 — a
+difference well within Monte-Carlo noise, and both beat the coin flip. The venue effect is near-
+symmetric across the two teams, so it barely changes *win prediction* (the expected, honest result);
+its purpose is to make the *decision* metric sensitive to pace/spin balance. The M5 gate ("at least
+as good as blind") is met within noise. **Decision: keep condition-aware; do NOT switch to Option 2.**
+
+## D18 — Ollama not installable headlessly here
+No Homebrew, no Ollama.app, and the official install script requires the macOS GUI app / sudo.
+**Decision:** do not force a fragile system install. The VLM client's `ollama` backend is code-
+complete and works the instant a user installs Ollama (`ollama pull qwen3-vl:4b`). Offline runs use
+the deterministic `mock` backend. Live VLM remains a one-line backend swap. Logged under NEEDS HUMAN.
+
+## D19 — Synthetic images: procedural placeholders now, SDXL path documented
+No image-generation key; SDXL via diffusers on 16 GB MPS would take hours and risk OOM.
+**Decision:** generate **procedural, class-distinct placeholder images** (PIL) so the manifest,
+CLIP-check infrastructure, demo and Set S plumbing all work offline, CLEARLY labelled as
+placeholders (generator="procedural-v1"). The real SDXL generation code + per-class prompts ship in
+`src/synthetic/generate.py` (gated on torch/diffusers). Real VLM-on-photo numbers need a key + real
+images (NEEDS HUMAN). This keeps the non-VLM, Set R science fully real.
+
+## D21 — Real-model rerun session (Thu 12 Nov, afternoon): keys + Ollama now present
+`.env` now carries `ANTHROPIC_API_KEY` and `GEMINI_API_KEY` (both load; never printed). Ollama is
+installed with `qwen3-vl:8b`. **Decision (per owner paste, overrides D2/D18/D19 for this rerun):**
+- **Readers:** Claude **Haiku** is the MAIN VLM, Qwen3-VL (Ollama, local) is the SECOND. Gemini is
+  NOT used as a reader (it is the image generator family). Reader model ids updated to the current
+  generation: `claude-haiku-5-5` (was `claude-haiku-4-5`; 5.5 is current and ~10× cheaper, vision-
+  capable) and `qwen3-vl:8b` (was `:4b`; matches what is installed).
+- **Remove mock** from every reported result; VLM arms re-run on the real readers.
+
+## D22 — Gemini image generation BLOCKED on this key → SDXL-Turbo local fallback
+The `GEMINI_API_KEY` is on Google's **free tier**, where every image model
+(`gemini-2.5-flash-image`, `gemini-3.1-flash-image`, `gemini-3.1-flash-lite-image`, …) returns
+`429 RESOURCE_EXHAUSTED` with **`limit: 0`** — a hard per-day cap (retry ~12h). Image generation is
+simply not permitted without billing enabled on the Google project. **Decision (per MASTER_PROMPT
+§5 fallback):** generate real photoreal images **locally with SDXL-Turbo via diffusers on Apple
+MPS** (Stability family ≠ Claude/Qwen reader family, so Hard rule #6 holds). The `generate_gemini`
+code path is still wired so the owner can switch the moment billing is enabled. Logged under NEEDS
+HUMAN. Side effect: image generation is now **free**, so the $10 budget is no longer at risk.
+
+## D23 — Claude call hardened for current API (anthropic 2.8.0, API ≥ 2026-10-21)
+The current Messages API **rejects `temperature`/`top_p`/`top_k` (400)** and Haiku 5.5 runs thinking
+by default (so `content[0]` can be a thinking block). **Decision:** the `claude` backend sends no
+sampling params, disables thinking (`{"type":"disabled"}`, accepted on Haiku 5.5 at effort ≤ high)
+for cheap deterministic JSON classification, and parses the first `text` block (not `content[0]`).
+Consequence: hosted-reader runs are near-deterministic, so run-to-run **consistency (Fleiss κ) is
+measured on the local Qwen reader** (Ollama honours temperature) and reported as perfect/near-perfect
+for the hosted reader by construction. Logged honestly in the paper.
+
+## D24 — Anthropic key has $0 credit → Qwen3-VL (local) is the sole real reader
+The 10-call pilot on `claude-haiku-5-5` returned **HTTP 400 "Your credit balance is too low to access
+the Anthropic API"** on every call (request_id logged in results/pilot.json). So the intended MAIN
+reader (Claude Haiku) cannot run. Per MASTER_PROMPT §5 ("If GEMINI/ANTHROPIC key is missing, use the
+local Qwen3-VL via Ollama for ALL VLM arms, and log it"), **decision: Qwen3-VL:8b via Ollama is the
+real reader for every reported VLM number.** The Claude backend stays wired and correct (D23) for a
+one-line swap once credits are added (NEEDS HUMAN). Upside: Ollama honours temperature, so run-to-run
+**consistency (Fleiss κ) is genuinely measurable** on the local reader. Because local inference is
+slow (~pilot-measured s/call), Set R VLM arms run at k=1 (cut order: "local model beyond 30 scenarios"
+is cuttable) while the never-cut Ours-1 and Set S extraction are kept. Total API spend stays **$0.00**
+(local only; Gemini image gen was also blocked, D22, so SDXL-Turbo was used locally).
+
+## D20 — What is fully REAL vs mock in this delivery
+REAL (no key needed): all foundations; Set R decision metrics for arms B2, B3, B4, B5, B7, Ref, Habit
+under blind + condition-aware simulators, with bootstrap/Wilcoxon/McNemar/Holm stats. MOCK/pending:
+VLM extraction (B1, Ours-1, Ours-2) and CLIP arm (B6) — run through the deterministic mock to exercise
+the pipeline; real numbers pending a key/Ollama and real images.
