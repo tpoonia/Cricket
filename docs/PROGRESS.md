@@ -126,3 +126,39 @@ result from cache; `--report` rebuilds metrics/figures/PDF.
 Branch `feat/vision-to-constraints`, ~16 conventional commits, built on `main` (repo-setup commit).
 All milestones M0–M10 delivered; VLM-on-real-photo numbers are the only mock-backed part (keys absent).
 Owner to review and merge.
+
+## Real-model evaluation run (Thu 13 Nov, 00:18) — RAW OUTPUTS ONLY
+
+Scope of this run (owner instruction): evaluation runs only — no figures/metrics/stats/PDF/paper
+(those are done elsewhere). Readers are now real: **Claude Haiku 5.5 is the main VLM** (Anthropic
+credit restored; pilot verified), **Qwen3-VL:8b (Ollama, local) is the second**. Images are the real
+**SDXL-Turbo** set (Gemini image-gen is blocked on the free tier — `limit: 0` — so SDXL was used; see
+DECISIONS D22). The deterministic mock is retired from every reported file.
+
+**Finished and saved (all raw, no post-processing):**
+1. **Haiku 10-call pilot** → `results/pilot_haiku.json`: **10/10 valid JSON**, image input confirmed,
+   per-call cost ~$0.0005.
+2. **Set S** (planted decision, all arms, reader=Haiku, k=1) → `data/results/raw/set_s_results.json`
+   (600 rows; arms B3, B4_oracle, Ours1_label, Ours2_rules, Ref).
+3. **Set R** (decision, all arms, reader=Haiku on all 250 matches, k=1) →
+   `data/results/raw/set_r_results.json` (5000 rows, 250 matches; all 10 arms incl. Ours1/Ours2,
+   blind + condition-aware win probs).
+4. **Qwen 50 seeded scenarios** (local, label+rules raw) → `data/results/raw/qwen_results.json`
+   (**49/50 label-valid**; pitch perception 19/24 — green/dry/wet read correctly, flat→dry conflated).
+5. **Per-arm extractions** → `data/results/raw/extractions/Ours1_label.json`, `Ours2_rules.json`.
+
+**Test output (pilot, real):**
+```
+pilot (claude-haiku-5-5): valid_json 10/10, image input OK
+pilot (qwen3-vl:8b):      valid_json 10/10, mean 33.9s/call (max 63s)
+qwen 50-scenario run:     label-valid 49/50, pitch perception 19/24
+```
+
+**Total API cost this run: $0.0565** (Haiku only; Qwen is local/free). Cumulative spend well under
+the $10 cap.
+
+**NEEDS HUMAN (unchanged / new):**
+- Downstream figures/metrics/stats/PDF/paper from these raw files (done elsewhere, per instruction).
+- To generate images with **Gemini** instead of SDXL: enable billing on the Google AI Studio project
+  (free tier returns `limit: 0` for every image model); then `python -m src.synthetic.generate gemini`.
+- One Qwen scenario returned an empty reply (now handled as `schema_ok=false`, run no longer aborts).

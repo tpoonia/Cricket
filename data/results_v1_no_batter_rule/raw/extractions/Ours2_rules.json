@@ -1,0 +1,256 @@
+{
+  "arm": "Ours2_rules",
+  "note": "VLM writes rules directly (combined by tighter bound)",
+  "rules_by_scenario": {
+    "sky_night_05": [],
+    "pitch_dry_00": [],
+    "sky_rain_now_05": [],
+    "pitch_green_02": [],
+    "pitch_flat_04": [
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "uninformative_11": [],
+    "uninformative_19": [],
+    "pitch_green_07": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 8
+      },
+      {
+        "feature": "n_spin",
+        "lo": 3,
+        "hi": 11
+      }
+    ],
+    "pitch_dry_06": [
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "uninformative_01": [],
+    "sky_overcast_08": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 3
+      },
+      {
+        "feature": "n_spin",
+        "lo": 8,
+        "hi": 11
+      }
+    ],
+    "pitch_flat_02": [
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "pitch_wet_05": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 2
+      },
+      {
+        "feature": "n_spin",
+        "lo": 3,
+        "hi": 5
+      }
+    ],
+    "sky_overcast_00": [],
+    "sky_rain_now_06": [],
+    "sky_clear_02": [],
+    "pitch_dry_03": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "sky_rain_now_03": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 2
+      },
+      {
+        "feature": "n_spin",
+        "lo": 7,
+        "hi": 11
+      }
+    ],
+    "sky_night_06": [],
+    "sky_clear_04": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "uninformative_15": [],
+    "pitch_green_08": [],
+    "pitch_flat_06": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "uninformative_04": [],
+    "pitch_slow_03": [],
+    "pitch_green_03": [],
+    "sky_overcast_06": [],
+    "pitch_wet_08": [],
+    "pitch_slow_00": [
+      {
+        "feature": "n_pace",
+        "lo": 8,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 3
+      }
+    ],
+    "pitch_green_06": [],
+    "sky_rain_now_08": [
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "uninformative_00": [],
+    "sky_night_02": [],
+    "uninformative_05": [],
+    "sky_night_04": [],
+    "sky_clear_09": [],
+    "pitch_flat_07": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "pitch_dry_08": [],
+    "sky_overcast_01": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 3
+      },
+      {
+        "feature": "n_spin",
+        "lo": 8,
+        "hi": 11
+      }
+    ],
+    "sky_clear_01": [],
+    "sky_overcast_03": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 3
+      },
+      {
+        "feature": "n_spin",
+        "lo": 2,
+        "hi": 7
+      }
+    ],
+    "sky_rain_now_01": [],
+    "pitch_wet_03": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 5
+      },
+      {
+        "feature": "n_spin",
+        "lo": 4,
+        "hi": 5
+      }
+    ],
+    "pitch_green_01": [],
+    "sky_night_09": [],
+    "pitch_wet_02": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 3
+      },
+      {
+        "feature": "n_spin",
+        "lo": 8,
+        "hi": 11
+      }
+    ],
+    "pitch_wet_01": [
+      {
+        "feature": "n_pace",
+        "lo": 0,
+        "hi": 3
+      },
+      {
+        "feature": "n_spin",
+        "lo": 8,
+        "hi": 11
+      }
+    ],
+    "pitch_green_04": [],
+    "pitch_dry_05": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ],
+    "pitch_dry_07": [
+      {
+        "feature": "n_pace",
+        "lo": 9,
+        "hi": 11
+      },
+      {
+        "feature": "n_spin",
+        "lo": 0,
+        "hi": 2
+      }
+    ]
+  }
+}

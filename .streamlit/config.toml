@@ -1,0 +1,10 @@
+# Demo theme — pins a light base so the Okabe-Ito card design renders consistently
+# regardless of the viewer's OS/browser dark-mode setting. Affects Streamlit chrome only
+# (tabs, inputs, dataframes); no app logic or results are touched.
+[theme]
+base = "light"
+primaryColor = "#0072B2"            # Okabe-Ito blue
+backgroundColor = "#f7fafc"
+secondaryBackgroundColor = "#eef3f6"
+textColor = "#13232c"
+font = "sans serif"

@@ -106,7 +106,8 @@ def run_set_s_extraction(manifest: pd.DataFrame, mode: str = "label", k: int = 5
 
     per_class_acc = {c: (float(np.mean(v)) if v else float("nan")) for c, v in per_class_correct.items()}
     return {
-        "mode": mode, "backend": backend, "k": k,
+        "mode": mode, "backend": backend, "model": client.model, "k": k,
+        "n_pitch_images": int(len(pitch)),
         "schema_validity": round(schema_ok / total_runs, 3) if total_runs else float("nan"),
         "exact_set_match": round(float(np.mean(exact)), 3) if exact else float("nan"),
         "constraint_precision": round(precision, 3),

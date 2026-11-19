@@ -21,7 +21,18 @@ def test_manifest_and_images_present():
         assert (IMG_DIR / r["file"]).exists()
 
 
+def _is_procedural() -> bool:
+    import pandas as pd
+
+    gen = str(pd.read_csv(MANIFEST)["generator"].iloc[0])
+    return gen.startswith("procedural")
+
+
 def test_heuristic_rater_recovers_class():
+    """The colour-mean heuristic (rater B stand-in) only applies to procedural placeholders;
+    real photoreal images are rated by CLIP (see src.synthetic.checks.clip_label)."""
+    if not _is_procedural():
+        pytest.skip("real photoreal images: rater B is CLIP, not the colour heuristic")
     from src.synthetic.checks import heuristic_label
 
     assert heuristic_label(IMG_DIR / "pitch_green_00.png", "pitch") == "green"

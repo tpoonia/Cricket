@@ -1,7 +1,7 @@
 """F8 + §3.1#9: MILP XI selector (PuLP + HiGHS).
 
 Pick exactly 11 players from the pool maximising total value, subject to cricket rules
-(>=1 keeper, >=5 bowling options) and optional environment rules on pace/spin counts.
+(>=1 keeper, >=5 bowling options, >=5 batters) and optional environment rules on pace/spin counts.
 
 Environment rule schema (from the rule checker): a list of
   {"feature": "n_pace"|"n_spin", "lo": int, "hi": int}
@@ -18,6 +18,7 @@ import pulp
 
 MIN_KEEPERS = 1
 MIN_BOWLING_OPTIONS = 5
+MIN_BATTERS = 5
 XI_SIZE = 11
 
 
@@ -28,6 +29,7 @@ class Player:
     is_keeper: bool
     is_bowling_option: bool
     bowl_type: str  # "pace" | "spin" | "unknown"
+    is_batter: bool = False  # top-7 in >=50% of >=3 earlier innings (set where players are built)
 
 
 @dataclass
@@ -39,6 +41,7 @@ class SelectionResult:
     n_keeper: int
     n_bowling_option: int
     status: str
+    n_batter: int = 0
     relaxations: list[str] = field(default_factory=list)
 
 
@@ -52,6 +55,7 @@ def select_xi(
     env_rules: list[dict] | None = None,
     min_keepers: int = MIN_KEEPERS,
     min_bowling_options: int = MIN_BOWLING_OPTIONS,
+    min_batters: int = MIN_BATTERS,
 ) -> SelectionResult:
     """Solve the MILP. env_rules is a validated list of {feature, lo, hi}."""
     env_rules = env_rules or []
@@ -69,6 +73,11 @@ def select_xi(
     prob += (
         pulp.lpSum(x[p.pid] for p in players if p.is_bowling_option) >= min_bowling_options,
         "bowling_options",
+    )
+    # >=5 batters (cricket rule: a balanced XI needs a top order)
+    prob += (
+        pulp.lpSum(x[p.pid] for p in players if p.is_batter) >= min_batters,
+        "batters",
     )
     # Environment rules
     for i, r in enumerate(env_rules):
@@ -112,6 +121,7 @@ def _result(chosen: list[Player], objective: float, status: str,
         n_spin=sum(p.bowl_type == "spin" for p in chosen),
         n_keeper=sum(p.is_keeper for p in chosen),
         n_bowling_option=sum(p.is_bowling_option for p in chosen),
+        n_batter=sum(p.is_batter for p in chosen),
         status=status,
         relaxations=relaxations or [],
     )
@@ -123,6 +133,7 @@ def verify_xi(
     env_rules: list[dict] | None = None,
     min_keepers: int = MIN_KEEPERS,
     min_bowling_options: int = MIN_BOWLING_OPTIONS,
+    min_batters: int = MIN_BATTERS,
 ) -> dict:
     """Independently recompute legality + value from ids (never trust the solver's claim)."""
     env_rules = env_rules or []
@@ -135,6 +146,7 @@ def verify_xi(
         "all_in_pool": all(i in by_id for i in xi_ids),
         "keeper_ok": sum(p.is_keeper for p in sel) >= min_keepers,
         "bowling_ok": sum(p.is_bowling_option for p in sel) >= min_bowling_options,
+        "batter_ok": sum(p.is_batter for p in sel) >= min_batters,
     }
     for r in env_rules:
         cnt = n_pace if r["feature"] == "n_pace" else n_spin
@@ -147,5 +159,6 @@ def verify_xi(
         "checks": checks,
         "n_pace": n_pace,
         "n_spin": n_spin,
+        "n_batter": sum(p.is_batter for p in sel),
         "value": float(sum(p.value for p in sel)),
     }

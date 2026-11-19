@@ -24,6 +24,8 @@ def build():
     sv = met["simulator_validation"]
     ca = met["set_r_decision"]["p_win_ca"]
     ex = met["set_s_extraction"]
+    _names = {"claude-haiku-5-5": "Claude Haiku 5.5", "qwen3-vl:8b": "Qwen3-VL 8B", "mock-v1": "mock"}
+    reader = _names.get(ex["label"].get("model", ""), ex["label"].get("model", "VLM"))
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with PdfPages(OUT) as pdf:
@@ -43,10 +45,10 @@ def build():
             f"[{ca['B4_oracle']['ci_lo']:+.4f}, {ca['B4_oracle']['ci_hi']:+.4f}]  (XI change {ca['B4_oracle']['xi_change_rate']:.0%})",
             f"   B7 pace/spin swap    : {ca['B7_swap']['delta_pwin_mean']:+.4f}  Holm p={ca['B7_swap']['holm_p']:.1e}  (wrong rules hurt)",
             f"   Habit                : {ca['Habit']['delta_pwin_mean']:+.4f}  Holm p={ca['Habit']['holm_p']:.1e}",
-            f"   Ours-1 label (mock)  : {ca['Ours1_label_mock']['delta_pwin_mean']:+.4f}",
-            f"   Ours-2 rules (mock)  : {ca['Ours2_rules_mock']['delta_pwin_mean']:+.4f}",
+            f"   Ours-1 label ({reader}): {ca['Ours1_label']['delta_pwin_mean']:+.4f}",
+            f"   Ours-2 rules ({reader}): {ca['Ours2_rules']['delta_pwin_mean']:+.4f}",
             "",
-            "SET S EXTRACTION (mock VLM; real-photo + real-VLM numbers pending key/Ollama)",
+            f"SET S EXTRACTION ({reader} reading real SDXL-Turbo images)",
             f"   label mode: schema {ex['label']['schema_validity']:.2f}  exact {ex['label']['exact_set_match']:.2f}  "
             f"F1 {ex['label']['constraint_f1']:.2f}  NL4Opt {ex['label']['nl4opt_acc']:.2f}",
             f"   rules mode: exact {ex['rules']['exact_set_match']:.2f}  F1 {ex['rules']['constraint_f1']:.2f}  "

@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import pytest
 
+from src.evaluation.arms import _select_relaxing
 from src.selection.milp import (
+    MIN_BATTERS,
     InfeasibleSelection,
     Player,
     select_xi,
@@ -11,14 +13,18 @@ from src.selection.milp import (
 )
 
 
-def make_pool():
-    """18-player toy pool: 6 pace, 5 spin, 7 non-bowlers; keepers among non-bowlers."""
+def make_pool(n_batters: int = 7):
+    """18-player toy pool: 6 pace, 5 spin, 7 non-bowlers; keepers among non-bowlers.
+
+    `n_batters` controls how many of the 7 non-bowlers are flagged as batters (default 7),
+    so a caller can build a pool that cannot satisfy MIN_BATTERS=5.
+    """
     players = []
     # high-value batters (non-bowlers), one is keeper
     for i in range(7):
         players.append(
             Player(f"bat{i}", value=10 - i, is_keeper=(i in (0, 1)),
-                   is_bowling_option=False, bowl_type="unknown")
+                   is_bowling_option=False, bowl_type="unknown", is_batter=(i < n_batters))
         )
     for i in range(6):
         players.append(
@@ -38,8 +44,42 @@ def test_basic_legal_xi():
     assert len(res.xi) == 11
     assert res.n_keeper >= 1
     assert res.n_bowling_option >= 5
+    assert res.n_batter >= MIN_BATTERS
     v = verify_xi(res.xi, make_pool())
     assert v["legal"], v["checks"]
+
+
+def test_batter_rule_enforced():
+    """Every legal XI must contain >= MIN_BATTERS batters, and verify_xi re-checks it."""
+    pool = make_pool()
+    res = select_xi(pool)
+    assert res.n_batter >= MIN_BATTERS
+    v = verify_xi(res.xi, pool)
+    assert v["checks"]["batter_ok"]
+    assert v["n_batter"] >= MIN_BATTERS
+    # An XI that swaps a batter out for a non-batter bowler fails the batter check.
+    batters_in = [i for i in res.xi if i.startswith("bat")]
+    non_in = [p.pid for p in pool if not p.is_batter and p.pid not in res.xi]
+    tampered = [i for i in res.xi if i != batters_in[0]] + [non_in[0]]
+    v2 = verify_xi(tampered, pool)
+    if sum(p.is_batter for p in pool if p.pid in tampered) < MIN_BATTERS:
+        assert not v2["checks"]["batter_ok"]
+
+
+def test_batter_rule_infeasible_when_too_few():
+    """A pool with < MIN_BATTERS batters cannot satisfy the rule without relaxation."""
+    pool = make_pool(n_batters=3)
+    with pytest.raises(InfeasibleSelection):
+        select_xi(pool)  # needs 5 batters, only 3 exist
+
+
+def test_batter_rule_relaxed_and_logged():
+    """When the pool has too few batters, selection relaxes the minimum and logs it."""
+    pool = make_pool(n_batters=3)
+    res = _select_relaxing(pool)
+    assert len(res.xi) == 11
+    assert res.n_batter == 3  # took every available batter
+    assert any("batter rule relaxed" in r for r in res.relaxations), res.relaxations
 
 
 def test_objective_prefers_high_value():

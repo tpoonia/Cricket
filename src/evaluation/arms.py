@@ -9,19 +9,21 @@ import pandas as pd
 
 from src.conditions.player_types import bowl_type
 from src.rules.checker import check
-from src.selection.milp import InfeasibleSelection, Player, select_xi
+from src.selection.milp import MIN_BATTERS, InfeasibleSelection, Player, select_xi
 from src.selection.pools import candidate_pool, team_previous_matches
 from src.selection.roles import role_table
 
 
 def build_players(team: str, date, matches, xi, values: dict,
-                  keepers_asof: set | None = None) -> list[Player]:
+                  keepers_asof: set | None = None,
+                  batters_asof: set | None = None) -> list[Player]:
     """Pool players with value, roles and bowl type (the shared input to every MILP arm).
 
-    `keepers_asof` (optional) is a precomputed set of keeper player ids (as-of a fixed date,
-    leakage-safe for all holdout matches) to avoid rescanning deliveries per call.
+    `keepers_asof` / `batters_asof` (optional) are precomputed sets of keeper / batter player ids
+    (as-of a fixed date, leakage-safe for all holdout matches) to avoid rescanning deliveries per
+    call. When not supplied, both are computed per `date` through the leakage-safe gate.
     """
-    from src.selection.roles import bowling_options, keeper_candidates
+    from src.selection.roles import batter_candidates, bowling_options, keeper_candidates
 
     pool = candidate_pool(team, date, matches, xi)
     dl = _deliveries.get()
@@ -29,6 +31,10 @@ def build_players(team: str, date, matches, xi, values: dict,
         keepers = {p for p in pool if p in keepers_asof}
     else:
         keepers = keeper_candidates(pool, date, matches, dl)
+    if batters_asof is not None:
+        batters = {p for p in pool if p in batters_asof}
+    else:
+        batters = batter_candidates(pool, date, matches, dl)
     options = bowling_options(team, pool, date, matches, dl)
     players = []
     for pid in pool:
@@ -39,6 +45,7 @@ def build_players(team: str, date, matches, xi, values: dict,
                 is_keeper=pid in keepers,
                 is_bowling_option=pid in options,
                 bowl_type=bowl_type(pid),
+                is_batter=pid in batters,
             )
         )
     return players
@@ -72,17 +79,34 @@ def arm_b2_ml_only(players: list[Player]) -> list[str]:
 
 
 def _select_relaxing(players: list[Player], env_rules=None):
-    """Select, relaxing cricket minima to what the pool actually offers (logs implicitly).
+    """Select, relaxing cricket minima to what the pool actually offers (logged in `.relaxations`).
 
-    Associate-team pools may lack a detected keeper (no pre-split stumping) or <5 detected
-    bowling options; we relax those minima rather than fail.
+    Associate-team pools may lack a detected keeper (no pre-split stumping), <5 detected bowling
+    options, or <5 detected batters; we relax those minima to what the pool holds rather than fail,
+    and record each relaxation on the returned SelectionResult.
     """
-    mk = 1 if sum(p.is_keeper for p in players) >= 1 else 0
-    mb = min(5, sum(p.is_bowling_option for p in players))
+    n_keeper = sum(p.is_keeper for p in players)
+    n_bowl = sum(p.is_bowling_option for p in players)
+    n_bat = sum(p.is_batter for p in players)
+    mk = 1 if n_keeper >= 1 else 0
+    mb = min(5, n_bowl)
+    mbat = min(MIN_BATTERS, n_bat)
+    relax = []
+    if mk < 1:
+        relax.append("keeper rule relaxed: no keeper detected in pool")
+    if mb < 5:
+        relax.append(f"bowling-option rule relaxed 5->{mb} (pool has {n_bowl})")
+    if mbat < MIN_BATTERS:
+        relax.append(f"batter rule relaxed {MIN_BATTERS}->{mbat} (pool has {n_bat})")
     try:
-        return select_xi(players, env_rules=env_rules, min_keepers=mk, min_bowling_options=mb)
+        res = select_xi(players, env_rules=env_rules, min_keepers=mk,
+                        min_bowling_options=mb, min_batters=mbat)
     except InfeasibleSelection:
-        return select_xi(players, env_rules=None, min_keepers=mk, min_bowling_options=mb)
+        res = select_xi(players, env_rules=None, min_keepers=mk,
+                        min_bowling_options=mb, min_batters=mbat)
+        relax.append("env rules dropped: infeasible with cricket rules alone")
+    res.relaxations = relax + list(res.relaxations)
+    return res
 
 
 def arm_b3_cricket(players: list[Player]) -> list[str]:
@@ -94,11 +118,12 @@ def arm_with_rules(players: list[Player], rules: list[dict]) -> tuple[list[str],
     avail = available_counts(players)
     checked = check(rules, mode="rules", available=avail)
     try:
-        xi = _select_relaxing(players, env_rules=checked["rules"]).xi
+        res = _select_relaxing(players, env_rules=checked["rules"])
     except InfeasibleSelection:
-        xi = _select_relaxing(players).xi  # last-resort: cricket rules only
+        res = _select_relaxing(players)  # last-resort: cricket rules only
         checked["log"].append("MILP infeasible even after relaxation; fell back to B3")
-    return xi, checked["log"]
+    checked["log"].extend(res.relaxations)
+    return res.xi, checked["log"]
 
 
 def perturb_rule(rules: list[dict], swap: bool = False, delta: int = 0) -> list[dict]:

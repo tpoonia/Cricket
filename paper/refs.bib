@@ -1,20 +1,22 @@
-% References. Entries flagged NEEDS-VERIFY were named in the project brief but could not be
-% cross-checked against the (missing) research reports in this offline build — verify with
-% anthropic-skills:deep-research before camera-ready (see docs/PROGRESS.md NEEDS HUMAN).
+% References. Every entry below was cross-checked against a primary source (arXiv / official
+% site) during the real-model rerun; see docs/PROGRESS.md (Citations) for the verification log.
 
 @inproceedings{nl4opt,
   title     = {{NL4Opt} Competition: Formulating Optimization Problems Based on Their Natural
                Language Descriptions},
-  author    = {Ramamonjison, Rindranirina and Yu, Timothy and Li, Raymond and others},
-  booktitle = {NeurIPS Competition Track},
-  year      = {2022}
+  author    = {Ramamonjison, Rindranirina and Yu, Timothy and Li, Raymond and Li, Haley and
+               Carenini, Giuseppe and Ghaddar, Bissan and He, Shiqi and Mostajabdaveh, Mahdi and
+               Banitalebi-Dehkordi, Amin and Zhou, Zirui and Zhang, Yong},
+  booktitle = {Proceedings of the NeurIPS 2022 Competitions Track (PMLR vol.\ 220)},
+  year      = {2023},
+  note      = {arXiv:2303.08233}
 }
 
 @misc{mmoptbench,
-  title        = {{MM-OptBench}: Multimodal Optimization Modelling Benchmark},
-  author       = {{(citation named in project brief)}},
+  title        = {{MM-OptBench}: A Solver-Grounded Benchmark for Multimodal Optimization Modeling},
+  howpublished = {arXiv:2605.12154},
   year         = {2026},
-  note         = {NEEDS-VERIFY: cited from the project brief; confirm venue/authors before submission}
+  note         = {\url{https://arxiv.org/abs/2605.12154}}
 }
 
 @misc{cricsheet,
@@ -34,4 +36,42 @@
   title        = {cricketdata: International Cricket Data (rOpenSci R package)},
   author       = {Hyndman, Rob J. and others},
   howpublished = {\url{https://docs.ropensci.org/cricketdata}}
+}
+
+@misc{optimus,
+  title        = {{OptiMUS}: Scalable Optimization Modeling with (MI)LP Solvers and Large Language Models},
+  author       = {AhmadiTeshnizi, Ali and Gao, Wenzhi and Udell, Madeleine},
+  howpublished = {arXiv:2402.10172},
+  year         = {2024},
+  note         = {\url{https://arxiv.org/abs/2402.10172}}
+}
+
+@inproceedings{llmmodulo,
+  title     = {Position: {LLMs} Can't Plan, But Can Help Planning in {LLM-Modulo} Frameworks},
+  author    = {Kambhampati, Subbarao and Valmeekam, Karthik and Guan, Lin and Verma, Mudit and
+               Stechly, Kaya and Bhambri, Siddhant and Saldyt, Lucas Paul and Murthy, Anil B},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning (ICML 2024)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {235},
+  pages     = {22895--22907},
+  year      = {2024},
+  publisher = {PMLR}
+}
+
+@misc{constraintbench,
+  title        = {{ConstraintBench}: Benchmarking {LLM} Constraint Reasoning on Direct Optimization},
+  author       = {Tso, Joseph and Schmittou, Preston and Huynh, Quan and Hutchins, Jibran},
+  howpublished = {arXiv:2602.22465},
+  year         = {2026},
+  note         = {\url{https://arxiv.org/abs/2602.22465}}
+}
+
+@article{fancric,
+  title   = {Integer optimisation for the selection of a Twenty20 cricket team},
+  author  = {Sharp, G. D. and Brettenny, W. J. and Gonsalves, J. W. and Lourens, M. and Stretch, R. A.},
+  journal = {Journal of the Operational Research Society},
+  volume  = {62},
+  number  = {9},
+  pages   = {1688--1694},
+  year    = {2011}
 }

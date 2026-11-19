@@ -25,18 +25,23 @@ RESULTS = Path("results/raw")
 
 
 def _setr_scenario(match, host_region: str) -> dict:
-    """Weak latent condition for the Set-R VLM MOCK (host-region heuristic; does NOT peek at truth)."""
+    """Set-R text input for the VLM: host country + month only (no image, no venue, no truth peek).
+
+    Per the design and the research plan, match-day weather is intentionally left out (weak evidence,
+    no start time in Cricsheet); the reader infers a likely pitch tendency from host + month. The
+    `pitch_class`/`sky_class` fields are read ONLY by the offline mock backend and are ignored by the
+    real readers (claude/ollama), which see just the host/month text prompt."""
     asian = {"India", "Pakistan", "Sri Lanka", "Bangladesh", "United Arab Emirates", "Oman",
              "Malaysia", "Nepal", "Singapore", "Hong Kong", "Thailand", "Indonesia"}
     pitch = "slow" if host_region in asian else "flat"
     month = str(match["date"])[5:7]
     return {"id": f"setr_{match['match_id']}", "has_image": False,
-            "pitch_class": pitch, "sky_class": "clear",
+            "pitch_class": pitch, "sky_class": "clear", "weather": "not available",
             "host": host_region, "month": month}
 
 
-def _vlm_rules_from_mock(client: VLMClient, scenario: dict, mode: str, k: int = 5) -> list[dict]:
-    """Aggregate k mock runs into one rule set (majority label -> rulebook, or combined rules)."""
+def _vlm_rules(client: VLMClient, scenario: dict, mode: str, k: int = 5) -> list[dict]:
+    """Aggregate k VLM runs into one rule set (majority label -> rulebook, or combined rules)."""
     from collections import Counter
 
     from src.rules.checker import check, rules_for_label
@@ -55,7 +60,9 @@ def _vlm_rules_from_mock(client: VLMClient, scenario: dict, mode: str, k: int = 
 
 
 def run_setr(n_sims: int = 3000, n_matches: int | None = 250, with_vlm: bool = True,
-             backend: str = "mock") -> pd.DataFrame:
+             backend: str = "mock", k: int = 5, vlm_max: int | None = None) -> pd.DataFrame:
+    """`k` VLM runs per text scenario; `vlm_max` caps how many matches get the (slow local) VLM arms
+    — the deterministic arms still run on every match."""
     t = load_tables()
     m, xi, dl = t["matches"], t["xi"], t["deliveries"]
     A._deliveries.set(dl)
@@ -66,14 +73,16 @@ def run_setr(n_sims: int = 3000, n_matches: int | None = 250, with_vlm: bool = T
     priors = venue_priors_asof(m, dl, SPLIT_DATE)
     setr = build_set_r(m, n=n_matches)
 
-    # precompute keeper set as-of split (leakage-safe for all holdout matches)
+    # precompute keeper + batter sets as-of split (leakage-safe for all holdout matches)
     from src.data.splits import deliveries_before
+    from src.selection.roles import batters_before
 
     pre = deliveries_before(SPLIT_DATE, m, dl)
     st = pre[pre["wicket_kind"] == "stumped"].dropna(subset=["fielders"])
     keepers_asof: set = set()
     for f in st["fielders"]:
         keepers_asof.update(str(f).split(","))
+    batters_asof = batters_before(SPLIT_DATE, m, dl)
 
     client = VLMClient(backend=backend) if with_vlm else None
     memo: dict = {}
@@ -92,7 +101,8 @@ def run_setr(n_sims: int = 3000, n_matches: int | None = 250, with_vlm: bool = T
         venue = mm["venue"]
         t_rule = truth_rule(venue, priors, "A")
         for persp, (team, opp) in enumerate([(mm["team1"], mm["team2"]), (mm["team2"], mm["team1"])]):
-            players = A.build_players(team, mm["date"], m, xi, values, keepers_asof=keepers_asof)
+            players = A.build_players(team, mm["date"], m, xi, values,
+                                      keepers_asof=keepers_asof, batters_asof=batters_asof)
             if len(players) < 11:
                 continue
             opp_ids = A.real_xi(opp, mm["match_id"], xi)
@@ -114,12 +124,12 @@ def run_setr(n_sims: int = 3000, n_matches: int | None = 250, with_vlm: bool = T
                 "Habit": A.arm_habit(players, team, mm["date"], m, xi),
                 "Ref": real_persp_xi,
             }
-            if client is not None:
+            if client is not None and (vlm_max is None or seed < vlm_max):
                 scn = _setr_scenario(mm, _host(venue, priors))
-                r1 = _vlm_rules_from_mock(client, scn, "label")
-                r2 = _vlm_rules_from_mock(client, scn, "rules")
-                arm_xis["Ours1_label_mock"] = A.arm_with_rules(players, r1)[0]
-                arm_xis["Ours2_rules_mock"] = A.arm_with_rules(players, r2)[0]
+                r1 = _vlm_rules(client, scn, "label", k=k)
+                r2 = _vlm_rules(client, scn, "rules", k=k)
+                arm_xis["Ours1_label"] = A.arm_with_rules(players, r1)[0]
+                arm_xis["Ours2_rules"] = A.arm_with_rules(players, r2)[0]
 
             for arm, axi in arm_xis.items():
                 if len(axi) < 11 and arm != "Ref":
@@ -148,7 +158,8 @@ def _host(venue: str, priors: dict) -> str:
     return country_map().get(venue) or "Unknown"
 
 
-def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str = "mock") -> pd.DataFrame:
+def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str = "mock",
+                       k: int = 5) -> pd.DataFrame:
     """Set S downstream decision under the PLANTED simulator.
 
     Each carrier (a real holdout match) is assigned a synthetic pitch class; arms select XIs and
@@ -169,6 +180,8 @@ def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str =
     keepers_asof: set = set()
     for f in st["fielders"]:
         keepers_asof.update(str(f).split(","))
+    from src.selection.roles import batters_before
+    batters_asof = batters_before(SPLIT_DATE, m, dl)
 
     carriers = build_set_r(m, n=n_carriers)
     client = VLMClient(backend=backend)
@@ -177,7 +190,8 @@ def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str =
     for seed, (i, mm) in enumerate(carriers.iterrows()):
         cls = PITCH_TRUTH_CLASSES[seed % len(PITCH_TRUTH_CLASSES)]
         team, opp = mm["team1"], mm["team2"]
-        players = A.build_players(team, mm["date"], m, xi, values, keepers_asof=keepers_asof)
+        players = A.build_players(team, mm["date"], m, xi, values,
+                                  keepers_asof=keepers_asof, batters_asof=batters_asof)
         if len(players) < 11:
             continue
         opp_ids = A.real_xi(opp, mm["match_id"], xi)
@@ -186,13 +200,13 @@ def run_set_s_decision(n_carriers: int = 120, n_sims: int = 5000, backend: str =
         bf = bat_first_team(mm)
         scn = {"id": f"sets_{cls}_{mm['match_id']}", "pitch_class": cls, "sky_class": "clear",
                "has_image": True, "image_path": manifest_imgs[cls]}
-        r_label = _vlm_rules_from_mock(client, scn, "label")
-        r_rules = _vlm_rules_from_mock(client, scn, "rules")
+        r_label = _vlm_rules(client, scn, "label", k=k)
+        r_rules = _vlm_rules(client, scn, "rules", k=k)
         arm_xis = {
             "B3_cricket": A.arm_b3_cricket(players),
             "B4_oracle": A.arm_with_rules(players, rules_for_label(cls)["rules"])[0],
-            "Ours1_label_mock": A.arm_with_rules(players, r_label)[0],
-            "Ours2_rules_mock": A.arm_with_rules(players, r_rules)[0],
+            "Ours1_label": A.arm_with_rules(players, r_label)[0],
+            "Ours2_rules": A.arm_with_rules(players, r_rules)[0],
             "Ref": A.real_xi(team, mm["match_id"], xi),
         }
         for arm, axi in arm_xis.items():

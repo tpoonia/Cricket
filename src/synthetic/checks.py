@@ -47,21 +47,43 @@ def heuristic_label(path: Path, kind: str) -> str:
     return best
 
 
-def clip_label(path: Path, kind: str):  # pragma: no cover
-    """Rater B via CLIP zero-shot (gated on open_clip/torch). Used on real photos."""
-    import open_clip  # type: ignore
-    import torch  # type: ignore
+_CLIP = {}
+# Natural-language prompt per class for CLIP zero-shot (rater B on real photos).
+_CLIP_TEXT = {
+    "green": "a grassy green moist cricket pitch",
+    "dry": "a dry cracked brown cricket pitch",
+    "flat": "a hard flat even light-brown cricket pitch",
+    "slow": "a dusty worn slow cricket pitch",
+    "wet": "a cricket pitch under covers with a wet waterlogged outfield",
+    "clear": "a clear blue sunny sky over a cricket ground",
+    "overcast": "a grey overcast cloudy sky over a cricket ground",
+    "rain_now": "rain falling over a cricket ground under a dark sky",
+    "night": "a floodlit cricket stadium at night",
+}
 
-    model, _, preprocess = open_clip.create_model_and_transforms("ViT-B-32", pretrained="openai")
-    tok = open_clip.get_tokenizer("ViT-B-32")
+
+def _clip_model():  # pragma: no cover - needs torch/transformers + model download
+    if "m" not in _CLIP:
+        import torch  # type: ignore
+        from transformers import CLIPModel, CLIPProcessor  # type: ignore
+
+        name = "openai/clip-vit-base-patch32"
+        _CLIP["m"] = CLIPModel.from_pretrained(name).eval()
+        _CLIP["p"] = CLIPProcessor.from_pretrained(name)
+        _CLIP["torch"] = torch
+    return _CLIP["m"], _CLIP["p"], _CLIP["torch"]
+
+
+def clip_label(path: Path, kind: str):  # pragma: no cover
+    """Rater B via CLIP zero-shot (transformers). Used on the real photoreal images."""
+    model, proc, torch = _clip_model()
     classes = PITCH if kind == "pitch" else SKY
-    prompts = [f"a cricket {kind} that is {c}" for c in classes]
-    img = preprocess(Image.open(path)).unsqueeze(0)
+    prompts = [_CLIP_TEXT[c] for c in classes]
+    inputs = proc(text=prompts, images=Image.open(path).convert("RGB"),
+                  return_tensors="pt", padding=True)
     with torch.no_grad():
-        im = model.encode_image(img)
-        tx = model.encode_text(tok(prompts))
-        sim = (im @ tx.T).softmax(dim=-1)[0]
-    return classes[int(sim.argmax())]
+        probs = model(**inputs).logits_per_image.softmax(dim=1)[0]
+    return classes[int(probs.argmax())]
 
 
 def run_check(use_clip: bool = False) -> dict:

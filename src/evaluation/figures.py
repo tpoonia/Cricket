@@ -3,11 +3,11 @@
 Figures:
   1 pipeline            schematic of the method
   2 three_xis           pace/spin counts for one team under three conditions
-  3 perception          per-class perception accuracy (Set S, mock VLM)
-  4 extraction_f1       constraint F1 by arm/mode (Set S, mock VLM)
+  3 perception          per-class perception accuracy (Set S; reader named in title)
+  4 extraction_f1       constraint F1 by arm/mode (Set S; reader named in title)
   5 delta_pwin          ΔP(win) vs B3 by arm, blind vs condition-aware (Set R, 95% CI)
   6 noisy_rule          ΔP(win) vs B3 as rule noise increases
-All numbers are pulled from results/metrics.json / parquet. Mock VLM figures are labelled.
+All numbers are pulled from results/metrics.json / parquet; the Set-S reader model is shown in each title.
 """
 from __future__ import annotations
 
@@ -38,6 +38,15 @@ def _save(fig, name):
     FIG.mkdir(parents=True, exist_ok=True)
     fig.savefig(FIG / f"{name}.png", bbox_inches="tight")
     plt.close(fig)
+
+
+_READER_NAME = {"claude-haiku-5-5": "Claude Haiku 5.5", "claude-haiku-4-5": "Claude Haiku 4.5",
+                "qwen3-vl:8b": "Qwen3-VL 8B", "qwen3-vl:4b": "Qwen3-VL 4B", "mock-v1": "mock"}
+
+
+def _reader(met) -> str:
+    m = met.get("set_s_extraction", {}).get("label", {}).get("model", "")
+    return _READER_NAME.get(m, m or "VLM")
 
 
 def fig_pipeline():
@@ -91,7 +100,7 @@ def fig_perception():
     for i, v in enumerate(vals):
         ax.text(i, v + 0.01, f"{v:.2f}", ha="center", fontsize=8)
     ax.set_ylim(0, 1.05); ax.set_ylabel("perception accuracy")
-    ax.set_title("Per-class perception accuracy (Set S, mock VLM)")
+    ax.set_title(f"Per-class perception accuracy (Set S, {_reader(met)})")
     _save(fig, "fig3_perception")
 
 
@@ -105,7 +114,7 @@ def fig_extraction_f1():
     for i, v in enumerate(f1):
         ax.text(i, v + 0.01, f"{v:.2f}", ha="center", fontsize=8)
     ax.set_ylim(0, 1.05); ax.set_ylabel("constraint F1")
-    ax.set_title("Extraction constraint F1 (Set S, mock VLM)")
+    ax.set_title(f"Extraction constraint F1 (Set S, {_reader(met)})")
     _save(fig, "fig4_extraction_f1")
 
 
@@ -113,7 +122,7 @@ def fig_delta_pwin():
     met = json.loads(METRICS.read_text())
     ca = met["set_r_decision"]["p_win_ca"]
     blind = met["set_r_decision"]["p_win_blind"]
-    arms = ["B4_oracle", "B5_prior", "Habit", "B7_swap", "Ours1_label_mock", "Ours2_rules_mock"]
+    arms = ["B4_oracle", "B5_prior", "Habit", "B7_swap", "Ours1_label", "Ours2_rules"]
     arms = [a for a in arms if a in ca]
     import numpy as np
 

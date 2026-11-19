@@ -1,0 +1,1431 @@
+{
+  "backend": "ollama",
+  "model": "qwen3-vl:8b",
+  "n_scenarios": 50,
+  "k": 1,
+  "scenarios": [
+    {
+      "id": "sky_night_05",
+      "file": "sky_night_05.png",
+      "intended_class": "night",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "night",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_dry_00",
+      "file": "pitch_dry_00.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "sky_rain_now_05",
+      "file": "sky_rain_now_05.png",
+      "intended_class": "rain_now",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_green_02",
+      "file": "pitch_green_02.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_flat_04",
+      "file": "pitch_flat_04.png",
+      "intended_class": "flat",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "uninformative_11",
+      "file": "uninformative_11.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.1
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "uninformative_19",
+      "file": "uninformative_19.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "pitch_green_07",
+      "file": "pitch_green_07.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 8
+            },
+            {
+              "feature": "n_spin",
+              "lo": 3,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_dry_06",
+      "file": "pitch_dry_06.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "uninformative_01",
+      "file": "uninformative_01.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.1
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: '[]'",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "sky_overcast_08",
+      "file": "sky_overcast_08.png",
+      "intended_class": "overcast",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "overcast",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 3
+            },
+            {
+              "feature": "n_spin",
+              "lo": 8,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_flat_02",
+      "file": "pitch_flat_02.png",
+      "intended_class": "flat",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "pitch_wet_05",
+      "file": "pitch_wet_05.png",
+      "intended_class": "wet",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 2
+            },
+            {
+              "feature": "n_spin",
+              "lo": 3,
+              "hi": 5
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "sky_overcast_00",
+      "file": "sky_overcast_00.png",
+      "intended_class": "overcast",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "overcast",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_rain_now_06",
+      "file": "sky_rain_now_06.png",
+      "intended_class": "rain_now",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "sky_clear_02",
+      "file": "sky_clear_02.png",
+      "intended_class": "clear",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "clear",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_dry_03",
+      "file": "pitch_dry_03.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            },
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "sky_rain_now_03",
+      "file": "sky_rain_now_03.png",
+      "intended_class": "rain_now",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 2
+            },
+            {
+              "feature": "n_spin",
+              "lo": 7,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "sky_night_06",
+      "file": "sky_night_06.png",
+      "intended_class": "night",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "night",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_clear_04",
+      "file": "sky_clear_04.png",
+      "intended_class": "clear",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "clear",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            },
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "uninformative_15",
+      "file": "uninformative_15.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.1
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: '[]'",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "pitch_green_08",
+      "file": "pitch_green_08.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_flat_06",
+      "file": "pitch_flat_06.png",
+      "intended_class": "flat",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            },
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "uninformative_04",
+      "file": "uninformative_04.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.1
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "pitch_slow_03",
+      "file": "pitch_slow_03.png",
+      "intended_class": "slow",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "slow",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "slow"
+    },
+    {
+      "id": "pitch_green_03",
+      "file": "pitch_green_03.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_overcast_06",
+      "file": "sky_overcast_06.png",
+      "intended_class": "overcast",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "overcast",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_wet_08",
+      "file": "pitch_wet_08.png",
+      "intended_class": "wet",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "overcast",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_slow_00",
+      "file": "pitch_slow_00.png",
+      "intended_class": "slow",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 3
+            },
+            {
+              "feature": "n_pace",
+              "lo": 8,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "pitch_green_06",
+      "file": "pitch_green_06.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_rain_now_08",
+      "file": "sky_rain_now_08.png",
+      "intended_class": "rain_now",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "uninformative_00",
+      "file": "uninformative_00.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "sky_night_02",
+      "file": "sky_night_02.png",
+      "intended_class": "night",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "flat",
+          "sky": "night",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "flat"
+    },
+    {
+      "id": "uninformative_05",
+      "file": "uninformative_05.png",
+      "intended_class": "uninformative",
+      "kind": "other",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "uninformative",
+          "sky": "uninformative",
+          "confidence": 0.2
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "uninformative"
+    },
+    {
+      "id": "sky_night_04",
+      "file": "sky_night_04.png",
+      "intended_class": "night",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "night",
+          "confidence": 1
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_clear_09",
+      "file": "sky_clear_09.png",
+      "intended_class": "clear",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "clear",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_flat_07",
+      "file": "pitch_flat_07.png",
+      "intended_class": "flat",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            },
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "pitch_dry_08",
+      "file": "pitch_dry_08.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "sky_overcast_01",
+      "file": "sky_overcast_01.png",
+      "intended_class": "overcast",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "overcast",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 3
+            },
+            {
+              "feature": "n_spin",
+              "lo": 8,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_clear_01",
+      "file": "sky_clear_01.png",
+      "intended_class": "clear",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "clear",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_overcast_03",
+      "file": "sky_overcast_03.png",
+      "intended_class": "overcast",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "overcast",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 2,
+              "hi": 7
+            },
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 3
+            }
+          ]
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_rain_now_01",
+      "file": "sky_rain_now_01.png",
+      "intended_class": "rain_now",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "rain_now",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_wet_03",
+      "file": "pitch_wet_03.png",
+      "intended_class": "wet",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 4,
+              "hi": 5
+            },
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 5
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_green_01",
+      "file": "pitch_green_01.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "sky_night_09",
+      "file": "sky_night_09.png",
+      "intended_class": "night",
+      "kind": "sky",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "night",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_wet_02",
+      "file": "pitch_wet_02.png",
+      "intended_class": "wet",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "overcast",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 3
+            },
+            {
+              "feature": "n_spin",
+              "lo": 8,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_wet_01",
+      "file": "pitch_wet_01.png",
+      "intended_class": "wet",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "wet",
+          "sky": "overcast",
+          "confidence": 0.95
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 0,
+              "hi": 3
+            },
+            {
+              "feature": "n_spin",
+              "lo": 8,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "wet"
+    },
+    {
+      "id": "pitch_green_04",
+      "file": "pitch_green_04.png",
+      "intended_class": "green",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "green",
+          "sky": "uninformative",
+          "confidence": 0.9
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": false,
+          "error": "ValueError: no JSON object in response: ''",
+          "pitch": null,
+          "sky": null,
+          "rules": []
+        }
+      ],
+      "pred_label": "green"
+    },
+    {
+      "id": "pitch_dry_05",
+      "file": "pitch_dry_05.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 1.0
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            },
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    },
+    {
+      "id": "pitch_dry_07",
+      "file": "pitch_dry_07.png",
+      "intended_class": "dry",
+      "kind": "pitch",
+      "label_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "pitch": "dry",
+          "sky": "uninformative",
+          "confidence": 0.8
+        }
+      ],
+      "rules_raw": [
+        {
+          "backend": "ollama",
+          "schema_ok": true,
+          "rules": [
+            {
+              "feature": "n_pace",
+              "lo": 9,
+              "hi": 11
+            },
+            {
+              "feature": "n_spin",
+              "lo": 0,
+              "hi": 2
+            }
+          ]
+        }
+      ],
+      "pred_label": "dry"
+    }
+  ]
+}

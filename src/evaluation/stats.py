@@ -14,7 +14,7 @@ from scipy.stats import wilcoxon
 BASELINE = "B3_cricket"
 ORACLE = "B4_oracle"
 # pre-registered primary comparisons (arms vs B3) for Holm correction
-PRIMARY_ARMS = ["B4_oracle", "B5_prior", "Habit", "B7_swap", "Ours1_label_mock", "Ours2_rules_mock"]
+PRIMARY_ARMS = ["B4_oracle", "B5_prior", "Habit", "B7_swap", "Ours1_label", "Ours2_rules"]
 
 
 def _pivot(df: pd.DataFrame, col: str) -> pd.DataFrame:

@@ -25,18 +25,21 @@ PITCH_CLASSES = ["green", "dry", "flat", "slow", "wet"]
 SKY_CLASSES = ["clear", "overcast", "rain_now", "night"]
 UNINFORMATIVE = "uninformative"
 
-# Strong per-class prompts for the real SDXL path (kept in the manifest).
+# Strong per-class prompts for the real image generators (SDXL / Gemini). Stored verbatim in the
+# manifest as the prompt actually used, so the generation is reproducible. No team/venue/date text
+# (memorisation control, Hard rule #7); "no text/people" keeps the pitch condition unobstructed.
+_STYLE = "photorealistic, high detail, natural daylight, no text, no watermark, no logos"
 PROMPTS = {
-    "green": "close-up photograph of a fresh green grassy cricket pitch, moist surface, overcast morning, 35mm",
-    "dry": "close-up photograph of a dry cracked brown cricket pitch, visible cracks, sunbaked, harsh midday light",
-    "flat": "close-up photograph of a hard flat even light-brown cricket pitch, well-rolled, clear day",
-    "slow": "close-up photograph of a dusty worn slow cricket pitch, grey-brown dust, scuff marks, subcontinental ground",
-    "wet": "photograph of a cricket pitch under covers, wet waterlogged outfield, puddles, rain",
-    "clear": "photograph of a clear blue sky over a cricket stadium, bright sunshine",
-    "overcast": "photograph of a heavy grey overcast sky over a cricket ground, thick clouds",
-    "rain_now": "photograph of rain falling over a cricket ground, wet dark sky, drizzle",
-    "night": "photograph of a floodlit cricket stadium at night, bright floodlights, dark sky",
-    "uninformative": "wide blurry photograph of a packed cricket stadium crowd, out of focus",
+    "green": f"extreme close-up photograph of a fresh green grassy cricket pitch, moist surface with a layer of live grass, overcast morning light, 35mm, {_STYLE}, no people",
+    "dry": f"extreme close-up photograph of a dry cracked brown cricket pitch, deep visible cracks in sun-baked clay, bare of grass, harsh midday sun, 35mm, {_STYLE}, no people",
+    "flat": f"extreme close-up photograph of a hard flat even light-brown cricket pitch, well-rolled smooth clay, clear day, 35mm, {_STYLE}, no people",
+    "slow": f"extreme close-up photograph of a dusty worn slow cricket pitch, powdery grey-brown dust and scuff marks, subcontinental ground, 35mm, {_STYLE}, no people",
+    "wet": f"photograph of a cricket pitch under flat protective covers with a wet waterlogged outfield and puddles during rain, {_STYLE}",
+    "clear": f"photograph of a clear blue sky over a cricket stadium, bright sunshine, few clouds, {_STYLE}",
+    "overcast": f"photograph of a heavy grey overcast sky over a cricket ground, thick low clouds, flat diffuse light, {_STYLE}",
+    "rain_now": f"photograph of steady rain falling over a cricket ground, dark wet sky, visible drizzle and puddles, {_STYLE}",
+    "night": f"photograph of a floodlit cricket stadium at night, bright floodlight towers, dark sky, {_STYLE}",
+    "uninformative": f"wide blurry out-of-focus photograph of a packed cricket stadium crowd, motion blur, {_STYLE}",
 }
 
 BASE_COLORS = {
@@ -99,31 +102,96 @@ def _render(cls: str, seed: int) -> Image.Image:
     return img
 
 
-def generate_procedural(out_dir: Path = IMG_DIR, per_class: int = 10,
-                        n_uninformative: int = 20, seed: int = 0) -> list[dict]:
-    out_dir.mkdir(parents=True, exist_ok=True)
-    manifest = []
+def _plan(per_class: int, n_uninformative: int, seed: int):
+    """Shared (id, file, class, kind, seed) plan so every generator writes an identical manifest."""
+    items = []
     sid = 0
-    plan = [(c, "pitch") for c in PITCH_CLASSES] + [(c, "sky") for c in SKY_CLASSES]
-    for cls, kind in plan:
+    for cls, kind in [(c, "pitch") for c in PITCH_CLASSES] + [(c, "sky") for c in SKY_CLASSES]:
         for i in range(per_class):
             sid += 1
-            s = seed * 1000 + sid
-            img = _render(cls, s)
             name = f"{kind}_{cls}_{i:02d}.png"
-            img.save(out_dir / name)
-            manifest.append({"id": name[:-4], "file": name, "class": cls, "kind": kind,
-                             "prompt": PROMPTS[cls], "generator": "procedural-v1", "seed": s})
+            items.append((name[:-4], name, cls, kind, seed * 1000 + sid))
     for i in range(n_uninformative):
         sid += 1
-        s = seed * 1000 + sid
-        img = _render(UNINFORMATIVE, s)
         name = f"uninformative_{i:02d}.png"
+        items.append((name[:-4], name, UNINFORMATIVE, "other", seed * 1000 + sid))
+    return items
+
+
+def _run(make_image, generator: str, out_dir: Path, per_class: int,
+         n_uninformative: int, seed: int) -> list[dict]:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    manifest = []
+    for iid, name, cls, kind, s in _plan(per_class, n_uninformative, seed):
+        img = make_image(cls, s)
         img.save(out_dir / name)
-        manifest.append({"id": name[:-4], "file": name, "class": UNINFORMATIVE, "kind": "other",
-                         "prompt": PROMPTS[UNINFORMATIVE], "generator": "procedural-v1", "seed": s})
+        manifest.append({"id": iid, "file": name, "class": cls, "kind": kind,
+                         "prompt": PROMPTS[cls], "generator": generator, "seed": s})
     _write_manifest(manifest)
     return manifest
+
+
+def generate_procedural(out_dir: Path = IMG_DIR, per_class: int = 10,
+                        n_uninformative: int = 20, seed: int = 0) -> list[dict]:
+    """Offline class-distinct PIL placeholders (labelled generator='procedural-v1')."""
+    return _run(_render, "procedural-v1", out_dir, per_class, n_uninformative, seed)
+
+
+def _sdxl_turbo_pipe():  # pragma: no cover - needs torch/diffusers + MPS
+    from diffusers import AutoPipelineForText2Image  # type: ignore
+    import torch  # type: ignore
+
+    pipe = AutoPipelineForText2Image.from_pretrained(
+        "stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16"
+    ).to("mps")
+    pipe.set_progress_bar_config(disable=True)
+    return pipe, torch
+
+
+def generate_sdxl(out_dir: Path = IMG_DIR, per_class: int = 10, n_uninformative: int = 20,
+                  seed: int = 0, steps: int = 4) -> list[dict]:  # pragma: no cover
+    """Real photoreal generation via SDXL-Turbo on Apple MPS (fast: ~2-5s/image, guidance off).
+
+    Stability family != the reader families (Claude/Qwen), satisfying Hard rule #6.
+    """
+    pipe, torch = _sdxl_turbo_pipe()
+
+    def make_image(cls: str, s: int):
+        g = torch.Generator("mps").manual_seed(int(s))
+        return pipe(prompt=PROMPTS[cls], num_inference_steps=steps,
+                    guidance_scale=0.0, generator=g).images[0]
+
+    return _run(make_image, "sdxl-turbo-1.0", out_dir, per_class, n_uninformative, seed)
+
+
+def generate_gemini(out_dir: Path = IMG_DIR, per_class: int = 10, n_uninformative: int = 20,
+                    seed: int = 0, model: str = "gemini-2.5-flash-image",
+                    cost_per_image: float = 0.039) -> list[dict]:  # pragma: no cover
+    """Real photoreal generation via Google Gemini image models.
+
+    Requires a BILLED Gemini key — on the free tier every image model returns 429 limit:0
+    (see docs/DECISIONS.md D22). Each image's cost is added to the shared $10 budget ledger.
+    """
+    import io
+    import os
+
+    from google import genai  # type: ignore
+    from PIL import Image as PILImage
+
+    from src.vlm.client import record_cost
+
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+    def make_image(cls: str, s: int):
+        record_cost(cost_per_image)  # budget guard raises before spending if it would exceed $10
+        resp = client.models.generate_content(model=model, contents=[PROMPTS[cls]])
+        for part in resp.candidates[0].content.parts:
+            data = getattr(getattr(part, "inline_data", None), "data", None)
+            if data:
+                return PILImage.open(io.BytesIO(data)).convert("RGB")
+        raise RuntimeError(f"Gemini returned no image for class {cls!r}")
+
+    return _run(make_image, model, out_dir, per_class, n_uninformative, seed)
 
 
 def _write_manifest(manifest: list[dict]) -> None:
@@ -134,28 +202,10 @@ def _write_manifest(manifest: list[dict]) -> None:
         w.writerows(manifest)
 
 
-def generate_sdxl(out_dir: Path = IMG_DIR, per_class: int = 10, seed: int = 0):  # pragma: no cover
-    """Real photoreal generation (gated). Requires torch+diffusers on MPS."""
-    from diffusers import StableDiffusionXLPipeline  # type: ignore
-    import torch  # type: ignore
-
-    pipe = StableDiffusionXLPipeline.from_pretrained(
-        "stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16
-    ).to("mps")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    manifest = []
-    for cls, prompt in PROMPTS.items():
-        for i in range(per_class):
-            g = torch.Generator("mps").manual_seed(seed + i)
-            img = pipe(prompt, num_inference_steps=30, generator=g).images[0]
-            name = f"{cls}_{i:02d}.png"
-            img.save(out_dir / name)
-            manifest.append({"id": name[:-4], "file": name, "class": cls, "kind": "img",
-                             "prompt": prompt, "generator": "sdxl-base-1.0", "seed": seed + i})
-    _write_manifest(manifest)
-    return manifest
-
-
 if __name__ == "__main__":
-    mf = generate_procedural()
-    print(f"generated {len(mf)} images -> {IMG_DIR}; manifest -> {MANIFEST}")
+    import sys
+
+    gen = sys.argv[1] if len(sys.argv) > 1 else "procedural"
+    fn = {"procedural": generate_procedural, "sdxl": generate_sdxl, "gemini": generate_gemini}[gen]
+    mf = fn()
+    print(f"[{gen}] generated {len(mf)} images -> {IMG_DIR}; manifest -> {MANIFEST}")

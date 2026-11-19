@@ -1,0 +1,103 @@
+{
+  "backend": "claude",
+  "model": "claude-haiku-5-5",
+  "n": 10,
+  "valid_json": 10,
+  "valid_rate": 1.0,
+  "mean_sec": 0.0,
+  "max_sec": 0.0,
+  "usd_cost": 0.0,
+  "error": null,
+  "rows": [
+    {
+      "id": "pitch_green_00",
+      "intended": "green",
+      "kind": "pitch",
+      "pred_pitch": "uninformative",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "pitch_dry_00",
+      "intended": "dry",
+      "kind": "pitch",
+      "pred_pitch": "dry",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "pitch_flat_00",
+      "intended": "flat",
+      "kind": "pitch",
+      "pred_pitch": "dry",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "pitch_slow_00",
+      "intended": "slow",
+      "kind": "pitch",
+      "pred_pitch": "dry",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "pitch_wet_00",
+      "intended": "wet",
+      "kind": "pitch",
+      "pred_pitch": "wet",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "sky_clear_00",
+      "intended": "clear",
+      "kind": "sky",
+      "pred_pitch": "green",
+      "pred_sky": "clear",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "sky_overcast_00",
+      "intended": "overcast",
+      "kind": "sky",
+      "pred_pitch": "green",
+      "pred_sky": "overcast",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "sky_rain_now_00",
+      "intended": "rain_now",
+      "kind": "sky",
+      "pred_pitch": "wet",
+      "pred_sky": "rain_now",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "sky_night_00",
+      "intended": "night",
+      "kind": "sky",
+      "pred_pitch": "green",
+      "pred_sky": "night",
+      "schema_ok": true,
+      "sec": 0.0
+    },
+    {
+      "id": "pitch_green_01",
+      "intended": "green",
+      "kind": "pitch",
+      "pred_pitch": "green",
+      "pred_sky": "uninformative",
+      "schema_ok": true,
+      "sec": 0.0
+    }
+  ]
+}

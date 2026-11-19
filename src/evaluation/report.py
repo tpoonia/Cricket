@@ -30,7 +30,12 @@ def _num(x):
     return x
 
 
-def build_metrics(sim_n: int = 4000, sim_matches: int = 250) -> dict:
+def build_metrics(sim_n: int = 4000, sim_matches: int = 250,
+                  backend: str = "mock", local_backend: str | None = None,
+                  extraction_k: int = 5, local_k: int = 1) -> dict:
+    """Aggregate metrics. `backend` is the MAIN VLM reader for Set-S extraction (claude=Haiku for the
+    reported run); `local_backend` (ollama) adds a hosted-vs-local block read from cache if warm.
+    `local_k` is kept small because local Qwen3-VL inference is slow."""
     t = load_tables()
     m, xi, dl = t["matches"], t["xi"], t["deliveries"]
     tb = build_rates(SPLIT_DATE, m, dl)
@@ -61,12 +66,17 @@ def build_metrics(sim_n: int = 4000, sim_matches: int = 250) -> dict:
         }
     out["set_r_n_matches"] = int(setr["match_id"].nunique())
 
-    # Set S extraction
+    # Set S extraction (main reader); optional local reader for the hosted-vs-local ablation
     mf = pd.read_csv("data/synthetic/manifest.csv")
     out["set_s_extraction"] = {
-        "label": run_set_s_extraction(mf, mode="label", k=5),
-        "rules": run_set_s_extraction(mf, mode="rules", k=5),
+        "label": run_set_s_extraction(mf, mode="label", k=extraction_k, backend=backend),
+        "rules": run_set_s_extraction(mf, mode="rules", k=extraction_k, backend=backend),
     }
+    if local_backend:
+        out["set_s_extraction_local"] = {
+            "label": run_set_s_extraction(mf, mode="label", k=local_k, backend=local_backend),
+            "rules": run_set_s_extraction(mf, mode="rules", k=local_k, backend=local_backend),
+        }
 
     # Set S planted decision
     sets_path = RESULTS / "raw/sets_decision.parquet"

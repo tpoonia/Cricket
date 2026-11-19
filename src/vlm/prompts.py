@@ -26,7 +26,7 @@ Infer SELECTION CONSTRAINTS on how many pace and spin bowlers an XI should pick,
 what the image implies about conditions. Do not name any team, venue, country or date.
 
 Return STRICT JSON only, no prose:
-{{"rules": [{{"feature": "n_pace"|"n_spin", "lo": <int 0..11>, "hi": <int 0..11>}}]}}
+{"rules": [{"feature": "n_pace"|"n_spin", "lo": <int 0..11>, "hi": <int 0..11>}]}
 An empty list [] means the image implies no constraint. Keep 0 <= lo <= hi <= 11.
 """
 

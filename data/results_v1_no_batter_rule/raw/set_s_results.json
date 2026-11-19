@@ -1,0 +1,4802 @@
+[
+  {
+    "match_id": "1443545",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.431,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443545",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.4115,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1443545",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.431,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443545",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.431,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443545",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.43625,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1439899",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.35675,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439899",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.35675,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439899",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.35675,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439899",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.35675,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439899",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.37425,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1439900",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.4545,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439900",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.4545,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439900",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.4545,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439900",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4545,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439900",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.4565,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1439901",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.446,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439901",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.446,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439901",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.446,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439901",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4905,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1439901",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.46025,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1439902",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.638,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439902",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.638,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439902",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.638,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439902",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.638,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439902",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.54825,
+    "n_spin": 7,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1439903",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.51775,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439903",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.23775,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1439903",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.51775,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439903",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.51775,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1439903",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.4555,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1470187",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.43675,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1470187",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.43675,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1470187",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.43675,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1470187",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4915,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1470187",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.37525,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1470188",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.75625,
+    "n_spin": 2,
+    "n_pace": 9
+  },
+  {
+    "match_id": "1470188",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.75625,
+    "n_spin": 2,
+    "n_pace": 9
+  },
+  {
+    "match_id": "1470188",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.75625,
+    "n_spin": 2,
+    "n_pace": 9
+  },
+  {
+    "match_id": "1470188",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.75625,
+    "n_spin": 2,
+    "n_pace": 9
+  },
+  {
+    "match_id": "1470188",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.61375,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470189",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.378625,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470189",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.378625,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470189",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.378625,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470189",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.3155,
+    "n_spin": 3,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1470189",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.229,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1470191",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.49925,
+    "n_spin": 3,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1470191",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.49925,
+    "n_spin": 3,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1470191",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.49925,
+    "n_spin": 3,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1470191",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.52275,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1470191",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.4235,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470190",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5035,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470190",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.48375,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470190",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5035,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470190",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.5035,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1470190",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.33475,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1471822",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.61075,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471822",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.61075,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471822",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.61075,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471822",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.61075,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471822",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.49375,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471823",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.56925,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471823",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.56925,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471823",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.50225,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1471823",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.56025,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471823",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.583,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471824",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5105,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471824",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5105,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471824",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5105,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471824",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.47475,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471824",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.384,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471825",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.48162499999999997,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471825",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.48162499999999997,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471825",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.48162499999999997,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471825",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.469,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471825",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.2985,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1467705",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.4885,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1467705",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.4885,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1467705",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.4885,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1467705",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4885,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1467705",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.43275,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471826",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.60725,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1471826",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.611,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1471826",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.611,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1471826",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.607,
+    "n_spin": 3,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1471826",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.564,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1474260",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.70275,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474260",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.70275,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474260",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.70275,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474260",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.6565,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1474260",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.506,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1474261",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.6505,
+    "n_spin": 3,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474261",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.6505,
+    "n_spin": 3,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474261",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.6505,
+    "n_spin": 3,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474261",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.60175,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1474261",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.48425,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1474262",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5015,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1474262",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5015,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1474262",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5015,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1474262",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.52425,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1474262",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.45325,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1475525",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.722,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475525",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5835,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1475525",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.722,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475525",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.722,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475525",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.725125,
+    "n_spin": 6,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1475526",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7725,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475526",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7725,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475526",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7725,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475526",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7725,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475526",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.674,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1475527",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.492,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475527",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.492,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475527",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.492,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475527",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.46525,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1475527",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.47025,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475528",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.36225,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1475528",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.36225,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1475528",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.36225,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1475528",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.26825,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475528",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.268,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1475530",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.572,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475530",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.572,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475530",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.572,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475530",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.429,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1475530",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.53,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1443549",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.565,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443549",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.42425,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1443549",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.565,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443549",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.565,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443549",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.35025,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1475531",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7895,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475531",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7895,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475531",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7895,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475531",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7895,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1475531",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.74525,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443550",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5501250000000001,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443550",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5501250000000001,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443550",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5501250000000001,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443550",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.5501250000000001,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443550",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.33475,
+    "n_spin": 4,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1476795",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.72225,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476795",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.72225,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476795",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.72225,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476795",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.66225,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1476795",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.429625,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443551",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7885,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443551",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7885,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443551",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7885,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443551",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1443551",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.603,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1443552",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.76,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443552",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.685,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1443552",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.76,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443552",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.76,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443552",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.625,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1476798",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.691,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476798",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.691,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476798",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.691,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476798",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1476798",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.51575,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1443553",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.63075,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443553",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.63075,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443553",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.63075,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443553",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.63075,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1443553",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.4055,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478228",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.549,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478228",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.549,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478228",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.549,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478228",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.549,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478228",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.51325,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478229",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.59175,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478229",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.59175,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478229",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.59175,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478229",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.59175,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478229",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.49575,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479320",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.388,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479320",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.35625,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1479320",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.388,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479320",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.388,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479320",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.20425,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1478230",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.58,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478230",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.58,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478230",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.58,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478230",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.58,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1478230",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.5175,
+    "n_spin": 1,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479321",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.48925,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479321",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.48925,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479321",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.48925,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479321",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.411,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479321",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.34725,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479322",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.56775,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479322",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.56775,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479322",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.56775,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479322",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4815,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479322",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.55675,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479323",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.816,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479323",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.816,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479323",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.816,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479323",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.69,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479323",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.763,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479324",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.349,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479324",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.27925,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1479324",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.349,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479324",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.349,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479324",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.2115,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1479326",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.809,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479326",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.809,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479326",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.809,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479326",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.809,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479326",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.7675,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1479327",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.522,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479327",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.522,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479327",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.522,
+    "n_spin": 4,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1479327",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.49475,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1479327",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.56075,
+    "n_spin": 3,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481300",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5755,
+    "n_spin": 0,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1481300",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.533,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1481300",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.533,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1481300",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.533,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1481300",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.5345,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481303",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.78825,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481303",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.78825,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481303",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.78825,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481303",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.78825,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481303",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.428,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481304",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.79125,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481304",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.79125,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481304",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.79125,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481304",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.79125,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481304",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.67975,
+    "n_spin": 2,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481305",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.85525,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481305",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.85525,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481305",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.85525,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481305",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7655,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481305",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.638,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481306",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.8935,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481306",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.8935,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481306",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.8935,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481306",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.91625,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481306",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.84,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481308",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.93,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481308",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.93,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481308",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.93,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481308",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.93,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481308",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.881,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481307",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.3415,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481307",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.3415,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481307",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.3415,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481307",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.29175,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481307",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.26475,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481310",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.22625,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481310",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.22625,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481310",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.22625,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481310",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.22625,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481310",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.19375,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481309",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.71425,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481309",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.71425,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481309",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.71425,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481309",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.71425,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481309",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.6155,
+    "n_spin": 3,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481312",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.72825,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481312",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.72825,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481312",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.72825,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481312",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.72625,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481312",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.7475,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481311",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.6345,
+    "n_spin": 7,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481311",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.6345,
+    "n_spin": 7,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481311",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.6345,
+    "n_spin": 7,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481311",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.56125,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481311",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.55175,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482089",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.913,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482089",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.913,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482089",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.913,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482089",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.913,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482089",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.93925,
+    "n_spin": 6,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482088",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.807,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482088",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.795875,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482088",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.807,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482088",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.807,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482088",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.78125,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482090",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.46925,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482090",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.46925,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482090",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.46925,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482090",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.46925,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482090",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.263,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482091",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.9325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482091",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.9325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482091",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.9325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482091",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.9325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482091",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.96275,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481313",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.4005,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481313",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.4005,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481313",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.4005,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481313",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.3285,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481313",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.37225,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482093",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.3555,
+    "n_spin": 1,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482093",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.3555,
+    "n_spin": 1,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482093",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.3555,
+    "n_spin": 1,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482093",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.3555,
+    "n_spin": 2,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482093",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.32075,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1481314",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.94825,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481314",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.95275,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481314",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.94825,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481314",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.94825,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1481314",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.88775,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482092",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.474,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482092",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.474,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482092",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.474,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482092",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.55975,
+    "n_spin": 3,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482092",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.569,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481315",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.77675,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481315",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.77675,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481315",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.77675,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1481315",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.809,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1481315",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.724,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482094",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.67875,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482094",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.67875,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482094",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.67875,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482094",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.67675,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482094",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.74925,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482096",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.78825,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482096",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.78825,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482096",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.78825,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482096",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.62325,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1482096",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.7235,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482097",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.04675,
+    "n_spin": 1,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482097",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.04675,
+    "n_spin": 1,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482097",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.04675,
+    "n_spin": 1,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482097",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.04675,
+    "n_spin": 1,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482097",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.041,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482098",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.538,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482098",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.538,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482098",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.538,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482098",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.47225,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482098",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.41725,
+    "n_spin": 6,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482101",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.49325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482101",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.49325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482101",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.49325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482101",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.49325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482101",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.3655,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482100",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.3115,
+    "n_spin": 0,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482100",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.3115,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482100",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.3115,
+    "n_spin": 2,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482100",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.3115,
+    "n_spin": 2,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482100",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.29625,
+    "n_spin": 1,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482829",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.40675,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482829",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.40675,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482829",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.40675,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482829",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.3715,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1482829",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.29325,
+    "n_spin": 0,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1482828",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.41875,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482828",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.41875,
+    "n_spin": 1,
+    "n_pace": 9
+  },
+  {
+    "match_id": "1482828",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.41875,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482828",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.41875,
+    "n_spin": 2,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1482828",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.3195,
+    "n_spin": 0,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1482830",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.45025,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482830",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.45025,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482830",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.45025,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482830",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.34325,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482830",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.29875,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482819",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.49225,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482819",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.49225,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482819",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.49225,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482819",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.4955,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482819",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.539625,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482820",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.90375,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482820",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.90375,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482820",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.90375,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482820",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.82575,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482820",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.87875,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482821",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.525,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482821",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.525,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482821",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.525,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482821",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.5315,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1482821",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.5425,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482822",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.8395,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482822",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.8395,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482822",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.8395,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482822",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.8395,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482822",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.845,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482825",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.8735,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482825",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.8735,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482825",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.8735,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482825",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.84475,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482825",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.80825,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482826",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.297,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482826",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.297,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482826",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.297,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1482826",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.30125,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482826",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.31,
+    "n_spin": 4,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1482827",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.87225,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482827",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.87225,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482827",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.87225,
+    "n_spin": 6,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1482827",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.8875,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1482827",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.864,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1484051",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.2485,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484051",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.2485,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484051",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.2485,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484051",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.20175,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1484051",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.25725,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1484052",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.151,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484052",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.151,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484052",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.151,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484052",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.151,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1484052",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.1925,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1486582",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.29725,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1486582",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.29725,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1486582",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.29725,
+    "n_spin": 8,
+    "n_pace": 1
+  },
+  {
+    "match_id": "1486582",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.228,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1486582",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.276,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483785",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7163750000000001,
+    "n_spin": 8,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483785",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7163750000000001,
+    "n_spin": 8,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483785",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7163750000000001,
+    "n_spin": 8,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483785",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7163750000000001,
+    "n_spin": 8,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483785",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.5705,
+    "n_spin": 6,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483786",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.75925,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483786",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.75925,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483786",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.75925,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483786",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.663,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483786",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.567,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483788",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.58575,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483788",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.58575,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483788",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.58575,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483788",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.58575,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483788",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.52375,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1485343",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.6348750000000001,
+    "n_spin": 3,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1485343",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.6685,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1485343",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.6348750000000001,
+    "n_spin": 3,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1485343",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.6348750000000001,
+    "n_spin": 3,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1485343",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.55525,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1485346",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.13975,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485346",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.13975,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485346",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.13975,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485346",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.151,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485346",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.19,
+    "n_spin": 0,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485345",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.1675,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485345",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.1675,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485345",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.1675,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485345",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.1675,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485345",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.239,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485344",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.555,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485344",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.555,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485344",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.555,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485344",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.555,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485344",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.479,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485347",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.32425,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485347",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.32425,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485347",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.32425,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485347",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.32425,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485347",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.275,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1485348",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.86275,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485348",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.885,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1485348",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.86275,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485348",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.86275,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1485348",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.78075,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483789",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.44525,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483789",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.44525,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483789",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.44525,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483789",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.44525,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483789",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.44725,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1486784",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.45625,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486784",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.45625,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486784",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.45625,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486784",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.45625,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486784",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.47325,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1486785",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.54525,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486785",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.54525,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486785",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.54525,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486785",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.54525,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486785",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.52875,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1483787",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.484,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483787",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.484,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483787",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.484,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1483787",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.397,
+    "n_spin": 2,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483787",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.4595,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1486224",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.45975,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1486224",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.539,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1486224",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.45975,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1486224",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.45975,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1486224",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.42675,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1448346",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.748,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1448346",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.748,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1448346",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.748,
+    "n_spin": 5,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1448346",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.7185,
+    "n_spin": 5,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1448346",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.682875,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1487815",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.68325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1487815",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.68325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1487815",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.68325,
+    "n_spin": 7,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1487815",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.6935,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1487815",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.6415,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483732",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.734,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483732",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.734,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483732",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.734,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483732",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.734,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483732",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.664,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483731",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.5451250000000001,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483731",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5451250000000001,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483731",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5451250000000001,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483731",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.5451250000000001,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1483731",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.41325,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1448347",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.471,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1448347",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.44125,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1448347",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.471,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1448347",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.471,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1448347",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.46925,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483734",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.69325,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483734",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.69325,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483734",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.69325,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483734",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.69325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483734",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.59075,
+    "n_spin": 1,
+    "n_pace": 8
+  },
+  {
+    "match_id": "1483733",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.535,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483733",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.535,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483733",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.535,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483733",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.535,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1483733",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.47025,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1448348",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7486250000000001,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1448348",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7486250000000001,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1448348",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7486250000000001,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1448348",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.749,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1448348",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.61575,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483736",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.62225,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483736",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.62225,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483736",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.62225,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483736",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.598,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483736",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.56575,
+    "n_spin": 1,
+    "n_pace": 7
+  },
+  {
+    "match_id": "1483735",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.60575,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483735",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.599,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1483735",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.60575,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483735",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.60575,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1483735",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.539,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488319",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.56025,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488319",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.5635,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488319",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.5635,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488319",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.559,
+    "n_spin": 3,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1488319",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.52325,
+    "n_spin": 0,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1489581",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.903,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489581",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.903,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489581",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.903,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489581",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.894,
+    "n_spin": 3,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1489581",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.82,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489582",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.92325,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489582",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.92325,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489582",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.92325,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489582",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.92325,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1489582",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.855125,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488321",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.6015,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488321",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.6015,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488321",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.6015,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488321",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.6015,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488321",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.491,
+    "n_spin": 0,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488320",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.6105,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488320",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.6105,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488320",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.6105,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488320",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.6105,
+    "n_spin": 1,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488320",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.57225,
+    "n_spin": 0,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1489585",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.73225,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489585",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.73225,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489585",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.73225,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489585",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.73225,
+    "n_spin": 5,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1489585",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.48425,
+    "n_spin": 3,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489584",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.923,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489584",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.923,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489584",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.923,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1489584",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.923,
+    "n_spin": 2,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1489584",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.8425,
+    "n_spin": 2,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488338",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.83525,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488338",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.83525,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488338",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.83525,
+    "n_spin": 7,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488338",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.79325,
+    "n_spin": 4,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1488338",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.6765,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1488339",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.38325,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488339",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.38325,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488339",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.38325,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488339",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.368,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488339",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.2835,
+    "n_spin": 5,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488322",
+    "pitch_class": "green",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.465,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488322",
+    "pitch_class": "green",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.434,
+    "n_spin": 1,
+    "n_pace": 6
+  },
+  {
+    "match_id": "1488322",
+    "pitch_class": "green",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.465,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488322",
+    "pitch_class": "green",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.465,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488322",
+    "pitch_class": "green",
+    "arm": "Ref",
+    "p_win_planted": 0.4405,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488342",
+    "pitch_class": "dry",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.853,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488342",
+    "pitch_class": "dry",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.853,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488342",
+    "pitch_class": "dry",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.853,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488342",
+    "pitch_class": "dry",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.853,
+    "n_spin": 4,
+    "n_pace": 4
+  },
+  {
+    "match_id": "1488342",
+    "pitch_class": "dry",
+    "arm": "Ref",
+    "p_win_planted": 0.737,
+    "n_spin": 1,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488340",
+    "pitch_class": "flat",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.67475,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488340",
+    "pitch_class": "flat",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.67475,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488340",
+    "pitch_class": "flat",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.67475,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488340",
+    "pitch_class": "flat",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.5985,
+    "n_spin": 3,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488340",
+    "pitch_class": "flat",
+    "arm": "Ref",
+    "p_win_planted": 0.544,
+    "n_spin": 6,
+    "n_pace": 2
+  },
+  {
+    "match_id": "1488341",
+    "pitch_class": "slow",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.7455,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488341",
+    "pitch_class": "slow",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.7455,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488341",
+    "pitch_class": "slow",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.7455,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1488341",
+    "pitch_class": "slow",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.714,
+    "n_spin": 4,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1488341",
+    "pitch_class": "slow",
+    "arm": "Ref",
+    "p_win_planted": 0.63925,
+    "n_spin": 6,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1472516",
+    "pitch_class": "wet",
+    "arm": "B3_cricket",
+    "p_win_planted": 0.534,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1472516",
+    "pitch_class": "wet",
+    "arm": "B4_oracle",
+    "p_win_planted": 0.534,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1472516",
+    "pitch_class": "wet",
+    "arm": "Ours1_label",
+    "p_win_planted": 0.534,
+    "n_spin": 4,
+    "n_pace": 3
+  },
+  {
+    "match_id": "1472516",
+    "pitch_class": "wet",
+    "arm": "Ours2_rules",
+    "p_win_planted": 0.52325,
+    "n_spin": 2,
+    "n_pace": 5
+  },
+  {
+    "match_id": "1472516",
+    "pitch_class": "wet",
+    "arm": "Ref",
+    "p_win_planted": 0.4525,
+    "n_spin": 3,
+    "n_pace": 5
+  }
+]

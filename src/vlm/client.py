@@ -25,7 +25,8 @@ COST_LEDGER = Path("cache/cost_ledger.json")
 BUDGET_USD = 10.0
 
 # Rough per-call cost estimates (USD) for the budget guard; refined by the 10-call pilot.
-EST_COST = {"gemini": 0.0008, "claude": 0.004, "ollama": 0.0, "mock": 0.0}
+# claude = Haiku 5.5 ($0.10/$0.50 per MTok): ~1.6k in (incl. one image) + ~0.1k out ~= $0.0002/call.
+EST_COST = {"gemini": 0.04, "claude": 0.0005, "ollama": 0.0, "mock": 0.0}
 
 
 class BudgetExceeded(RuntimeError):
@@ -41,7 +42,15 @@ def _cost_so_far() -> float:
 def _add_cost(usd: float) -> None:
     COST_LEDGER.parent.mkdir(parents=True, exist_ok=True)
     total = _cost_so_far() + usd
-    COST_LEDGER.write_text(json.dumps({"total_usd": total}))
+    COST_LEDGER.write_text(json.dumps({"total_usd": round(total, 6)}))
+
+
+def record_cost(usd: float) -> float:
+    """Public hook so non-VLM API spend (e.g. Gemini image generation) counts toward the $10 cap."""
+    if _cost_so_far() + usd > BUDGET_USD:
+        raise BudgetExceeded(f"would exceed ${BUDGET_USD}; stop paid calls")
+    _add_cost(usd)
+    return _cost_so_far()
 
 
 class VLMClient:
@@ -49,9 +58,9 @@ class VLMClient:
         self.backend = backend
         self.model = model or {
             "mock": "mock-v1",
-            "gemini": "gemini-2.0-flash-lite",
-            "claude": "claude-haiku-4-5",
-            "ollama": "qwen3-vl:4b",
+            "gemini": "gemini-2.0-flash-lite",   # reader path unused (Gemini generates images)
+            "claude": "claude-haiku-5-5",         # MAIN VLM reader (current, vision-capable, cheap)
+            "ollama": "qwen3-vl:8b",              # SECOND VLM reader (local, as installed)
         }.get(backend, backend)
         self.temperature = temperature
 
@@ -64,7 +73,10 @@ class VLMClient:
         if image_path and Path(image_path).exists():
             h.update(Path(image_path).read_bytes())
         else:
-            h.update(json.dumps(scenario, sort_keys=True, default=str).encode())
+            # Drop the per-item 'id' so text scenarios that share host/month/weather dedupe in cache
+            # (the real text prompt already encodes host/month/weather; mock still keys on pitch/sky).
+            keyable = {k: v for k, v in scenario.items() if k != "id"}
+            h.update(json.dumps(keyable, sort_keys=True, default=str).encode())
         return h.hexdigest()[:20]
 
     def _cache_path(self, key: str) -> Path:
@@ -95,7 +107,13 @@ class VLMClient:
             raw = mock.mock_label(scenario, draw) if mode == "label" else mock.mock_rules(scenario, draw)
         else:
             self._budget_check()
-            raw = self._call_real(mode, prompt, image_path)
+            try:
+                raw = self._call_real(mode, prompt, image_path)
+            except BudgetExceeded:
+                raise
+            except Exception as e:  # noqa: BLE001 — an occasional empty/garbled reply must not abort the run
+                return {"backend": self.backend, "schema_ok": False,
+                        "error": f"{type(e).__name__}: {e}", "pitch": None, "sky": None, "rules": []}
             _add_cost(EST_COST.get(self.backend, 0.0))
         return self._validate(raw, mode)
 
@@ -167,16 +185,22 @@ class VLMClient:
             b64 = base64.standard_b64encode(Path(image_path).read_bytes()).decode()
             content.insert(0, {"type": "image", "source": {
                 "type": "base64", "media_type": "image/png", "data": b64}})
+        # Current API rejects temperature/top_p/top_k (400); Haiku 5.5 runs thinking by default
+        # (so content[0] may be a thinking block). Disable thinking for cheap, deterministic JSON
+        # and pull the first text block. (See docs/DECISIONS.md D23.)
         msg = client.messages.create(
-            model=self.model, max_tokens=400, temperature=self.temperature,
+            model=self.model, max_tokens=400,
+            thinking={"type": "disabled"},
             messages=[{"role": "user", "content": content}],
         )
-        return self._parse_json(msg.content[0].text)
+        text = next((b.text for b in msg.content if getattr(b, "type", None) == "text"), "")
+        return self._parse_json(text)
 
     def _call_ollama(self, prompt: str, image_path: str | None) -> dict:
         import urllib.request
 
         payload = {"model": self.model, "prompt": prompt, "stream": False,
+                   "keep_alive": "20m",  # keep the big model resident between calls
                    "options": {"temperature": self.temperature}}
         if image_path:
             payload["images"] = [base64.standard_b64encode(Path(image_path).read_bytes()).decode()]
@@ -184,6 +208,7 @@ class VLMClient:
             "http://localhost:11434/api/generate",
             data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"},
         )
-        with urllib.request.urlopen(req, timeout=120) as r:  # noqa: S310 (localhost)
+        # Generous timeout: a cold reload of qwen3-vl:8b plus first inference can exceed 2 min.
+        with urllib.request.urlopen(req, timeout=600) as r:  # noqa: S310 (localhost)
             data = json.load(r)
         return self._parse_json(data["response"])

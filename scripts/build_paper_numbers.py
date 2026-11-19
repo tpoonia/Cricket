@@ -40,8 +40,8 @@ def build() -> Path:
         mac("SwapDelta", _f(ca["B7_swap"]["delta_pwin_mean"], 4)),
         mac("SwapHolmP", f"{ca['B7_swap']['holm_p']:.1e}"),
         mac("HabitDelta", _f(ca["Habit"]["delta_pwin_mean"], 4)),
-        mac("OursOneDelta", _f(ca["Ours1_label_mock"]["delta_pwin_mean"], 4)),
-        mac("OursTwoDelta", _f(ca["Ours2_rules_mock"]["delta_pwin_mean"], 4)),
+        mac("OursOneDelta", _f(ca["Ours1_label"]["delta_pwin_mean"], 4)),
+        mac("OursTwoDelta", _f(ca["Ours2_rules"]["delta_pwin_mean"], 4)),
         mac("RefDelta", _f(ca["Ref"]["delta_pwin_mean"], 4)),
         mac("OracleDeltaBlind", _f(bl["B4_oracle"]["delta_pwin_mean"], 4)),
         mac("ExLabelF", _f(ex["label"]["constraint_f1"], 2)),
@@ -52,10 +52,23 @@ def build() -> Path:
         mac("ExRulesExact", _f(ex["rules"]["exact_set_match"], 2)),
         mac("ExLabelKappa", _f(ex["label"]["consistency_fleiss_kappa"], 2)),
     ]
+
+    # Provenance: which reader produced the Set-S numbers, and the local-reader ablation.
+    names = {"claude-haiku-5-5": "Claude Haiku 5.5", "claude-haiku-4-5": "Claude Haiku 4.5",
+             "qwen3-vl:8b": "Qwen3-VL~8B", "qwen3-vl:4b": "Qwen3-VL~4B", "mock-v1": "a mock backend"}
+    main_model = ex["label"].get("model", "mock-v1")
+    lines.append(mac("ReaderMain", names.get(main_model, main_model)))
+    exl = m.get("set_s_extraction_local")
+    if exl:
+        loc_model = exl["label"].get("model", "")
+        lines.append(mac("ReaderLocal", names.get(loc_model, loc_model)))
+        lines.append(mac("ExLabelLocalF", _f(exl["label"]["constraint_f1"], 2)))
+        lines.append(mac("ExLabelLocalKappa", _f(exl["label"]["consistency_fleiss_kappa"], 2)))
+
     sd = m.get("set_s_decision_planted", {})
     if sd:
         lines.append(mac("SetSPlantedOracle", _f(sd.get("B4_oracle", 0.0), 4)))
-        lines.append(mac("SetSPlantedOursTwo", _f(sd.get("Ours2_rules_mock", 0.0), 4)))
+        lines.append(mac("SetSPlantedOursTwo", _f(sd.get("Ours2_rules", 0.0), 4)))
         lines.append(mac("SetSCarriers", str(sd.get("n_carriers", 0))))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text("\n".join(lines) + "\n")

@@ -1,0 +1,278 @@
+{
+  "simulator_validation": {
+    "blind": {
+      "n_matches": 250,
+      "brier": 0.23785382025000001,
+      "auc": 0.6555778050513532,
+      "beats_coinflip_brier": true,
+      "beats_coinflip_auc": true,
+      "base_rate": 0.452
+    },
+    "condition_aware": {
+      "n_matches": 250,
+      "brier": 0.23949414200000002,
+      "auc": 0.650830049738389,
+      "beats_coinflip_brier": true,
+      "beats_coinflip_auc": true,
+      "base_rate": 0.452
+    },
+    "coin_flip_reference": {
+      "brier": 0.25,
+      "auc": 0.5
+    }
+  },
+  "set_r_decision": {
+    "p_win_ca": {
+      "B2_ml": {
+        "n": 500,
+        "xi_change_rate": 0.584,
+        "delta_pwin_mean": 0.0038199999999999996,
+        "ci_lo": -3.949499999999958e-05,
+        "ci_hi": 0.007922899999999998,
+        "wilcoxon_p": 0.6137758108706279,
+        "holm_p": NaN,
+        "regret_vs_B4": -0.0040431999999999985,
+        "overlap_real_mean": 6.662
+      },
+      "B7_plus1": {
+        "n": 500,
+        "xi_change_rate": 0.112,
+        "delta_pwin_mean": 0.0007870000000000009,
+        "ci_lo": -0.000630599999999999,
+        "ci_hi": 0.002303605000000001,
+        "wilcoxon_p": 0.3963638214445382,
+        "holm_p": NaN,
+        "regret_vs_B4": -0.001010200000000001,
+        "overlap_real_mean": 6.78
+      },
+      "B4_oracle": {
+        "n": 500,
+        "xi_change_rate": 0.062,
+        "delta_pwin_mean": -0.0002232000000000004,
+        "ci_lo": -0.0011046650000000003,
+        "ci_hi": 0.000536815,
+        "wilcoxon_p": 0.7001953125,
+        "holm_p": 1.0,
+        "regret_vs_B4": 0.0,
+        "overlap_real_mean": 6.748
+      },
+      "B5_prior": {
+        "n": 500,
+        "xi_change_rate": 0.062,
+        "delta_pwin_mean": -0.0002232000000000004,
+        "ci_lo": -0.0011046650000000003,
+        "ci_hi": 0.000536815,
+        "wilcoxon_p": 0.7001953125,
+        "holm_p": 1.0,
+        "regret_vs_B4": 0.0,
+        "overlap_real_mean": 6.748
+      },
+      "Ours1_label_mock": {
+        "n": 500,
+        "xi_change_rate": 0.084,
+        "delta_pwin_mean": -0.0015722000000000006,
+        "ci_lo": -0.002665230000000001,
+        "ci_hi": -0.0006385350000000012,
+        "wilcoxon_p": 0.000244140625,
+        "holm_p": 0.000732421875,
+        "regret_vs_B4": 0.0013490000000000002,
+        "overlap_real_mean": 6.75
+      },
+      "Habit": {
+        "n": 500,
+        "xi_change_rate": 0.634,
+        "delta_pwin_mean": -0.003427400000000001,
+        "ci_lo": -0.006211440000000002,
+        "ci_hi": -0.0007167900000000007,
+        "wilcoxon_p": 0.0001204513685474583,
+        "holm_p": 0.0004818054741898332,
+        "regret_vs_B4": 0.0032042000000000012,
+        "overlap_real_mean": 6.806
+      },
+      "B7_swap": {
+        "n": 500,
+        "xi_change_rate": 0.162,
+        "delta_pwin_mean": -0.004103000000000002,
+        "ci_lo": -0.005825315000000001,
+        "ci_hi": -0.0025667800000000016,
+        "wilcoxon_p": 8.19967076468002e-07,
+        "holm_p": 4.09983538234001e-06,
+        "regret_vs_B4": 0.0038798000000000005,
+        "overlap_real_mean": 6.708
+      },
+      "Ours2_rules_mock": {
+        "n": 500,
+        "xi_change_rate": 0.434,
+        "delta_pwin_mean": -0.0126958,
+        "ci_lo": -0.01662721,
+        "ci_hi": -0.009084825000000001,
+        "wilcoxon_p": 6.110802279632959e-16,
+        "holm_p": 3.6664813677797756e-15,
+        "regret_vs_B4": 0.0124726,
+        "overlap_real_mean": 6.676
+      },
+      "Ref": {
+        "n": 500,
+        "xi_change_rate": 1.0,
+        "delta_pwin_mean": -0.0746156,
+        "ci_lo": -0.08147650000000001,
+        "ci_hi": -0.06768557,
+        "wilcoxon_p": 1.0643105582443243e-59,
+        "holm_p": NaN,
+        "regret_vs_B4": 0.0743924,
+        "overlap_real_mean": 11.002
+      }
+    },
+    "p_win_blind": {
+      "B2_ml": {
+        "n": 500,
+        "xi_change_rate": 0.584,
+        "delta_pwin_mean": 0.003849000000000001,
+        "ci_lo": 5.23649999999998e-05,
+        "ci_hi": 0.007943409999999995,
+        "wilcoxon_p": 0.6501529103939311,
+        "holm_p": NaN,
+        "regret_vs_B4": -0.004109400000000001,
+        "overlap_real_mean": 6.662
+      },
+      "B7_plus1": {
+        "n": 500,
+        "xi_change_rate": 0.112,
+        "delta_pwin_mean": 0.00037739999999999963,
+        "ci_lo": -0.0009144950000000001,
+        "ci_hi": 0.001698425,
+        "wilcoxon_p": 0.6259257100791729,
+        "holm_p": NaN,
+        "regret_vs_B4": -0.0006377999999999995,
+        "overlap_real_mean": 6.78
+      },
+      "B4_oracle": {
+        "n": 500,
+        "xi_change_rate": 0.062,
+        "delta_pwin_mean": -0.0002604000000000001,
+        "ci_lo": -0.0011150249999999997,
+        "ci_hi": 0.00046281999999999975,
+        "wilcoxon_p": 0.7001953125,
+        "holm_p": 1.0,
+        "regret_vs_B4": 0.0,
+        "overlap_real_mean": 6.748
+      },
+      "B5_prior": {
+        "n": 500,
+        "xi_change_rate": 0.062,
+        "delta_pwin_mean": -0.0002604000000000001,
+        "ci_lo": -0.0011150249999999997,
+        "ci_hi": 0.00046281999999999975,
+        "wilcoxon_p": 0.7001953125,
+        "holm_p": 1.0,
+        "regret_vs_B4": 0.0,
+        "overlap_real_mean": 6.748
+      },
+      "Ours1_label_mock": {
+        "n": 500,
+        "xi_change_rate": 0.084,
+        "delta_pwin_mean": -0.0016551999999999995,
+        "ci_lo": -0.0027874399999999987,
+        "ci_hi": -0.0007043799999999998,
+        "wilcoxon_p": 8.20159912109375e-05,
+        "holm_p": 0.00032806396484375,
+        "regret_vs_B4": 0.0013947999999999994,
+        "overlap_real_mean": 6.75
+      },
+      "Habit": {
+        "n": 500,
+        "xi_change_rate": 0.634,
+        "delta_pwin_mean": -0.003630000000000002,
+        "ci_lo": -0.006365225000000003,
+        "ci_hi": -0.0009849900000000022,
+        "wilcoxon_p": 8.575325986823349e-05,
+        "holm_p": 0.00032806396484375,
+        "regret_vs_B4": 0.0033696000000000025,
+        "overlap_real_mean": 6.806
+      },
+      "B7_swap": {
+        "n": 500,
+        "xi_change_rate": 0.162,
+        "delta_pwin_mean": -0.0037983999999999995,
+        "ci_lo": -0.005368654999999998,
+        "ci_hi": -0.00236419,
+        "wilcoxon_p": 9.490700222022703e-07,
+        "holm_p": 4.745350111011351e-06,
+        "regret_vs_B4": 0.0035379999999999995,
+        "overlap_real_mean": 6.708
+      },
+      "Ours2_rules_mock": {
+        "n": 500,
+        "xi_change_rate": 0.434,
+        "delta_pwin_mean": -0.0127336,
+        "ci_lo": -0.016510430000000003,
+        "ci_hi": -0.00922136,
+        "wilcoxon_p": 1.0323391072424235e-16,
+        "holm_p": 6.194034643454541e-16,
+        "regret_vs_B4": 0.0124732,
+        "overlap_real_mean": 6.676
+      },
+      "Ref": {
+        "n": 500,
+        "xi_change_rate": 1.0,
+        "delta_pwin_mean": -0.0753636,
+        "ci_lo": -0.08217835,
+        "ci_hi": -0.06850688,
+        "wilcoxon_p": 1.0730175107386777e-60,
+        "holm_p": NaN,
+        "regret_vs_B4": 0.07510319999999998,
+        "overlap_real_mean": 11.002
+      }
+    }
+  },
+  "set_r_n_matches": 250,
+  "set_s_extraction": {
+    "label": {
+      "mode": "label",
+      "backend": "mock",
+      "k": 5,
+      "schema_validity": 1.0,
+      "exact_set_match": 0.96,
+      "constraint_precision": 0.952,
+      "constraint_recall": 1.0,
+      "constraint_f1": 0.976,
+      "nl4opt_acc": 0.967,
+      "abstention_uninformative": 0.65,
+      "consistency_fleiss_kappa": 0.481,
+      "per_class_perception_acc": {
+        "green": 1.0,
+        "dry": 1.0,
+        "flat": 0.8,
+        "slow": 0.8,
+        "wet": 1.0
+      }
+    },
+    "rules": {
+      "mode": "rules",
+      "backend": "mock",
+      "k": 5,
+      "schema_validity": 1.0,
+      "exact_set_match": 0.54,
+      "constraint_precision": 0.567,
+      "constraint_recall": 0.95,
+      "constraint_f1": 0.71,
+      "nl4opt_acc": 0.483,
+      "abstention_uninformative": 1.0,
+      "consistency_fleiss_kappa": null,
+      "per_class_perception_acc": {
+        "green": NaN,
+        "dry": NaN,
+        "flat": NaN,
+        "slow": NaN,
+        "wet": NaN
+      }
+    }
+  },
+  "set_s_decision_planted": {
+    "B4_oracle": -0.006245833333333334,
+    "Ours1_label_mock": -0.006245833333333334,
+    "Ours2_rules_mock": -0.01808854166666667,
+    "Ref": -0.07343125,
+    "n_carriers": 120
+  }
+}
